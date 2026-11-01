@@ -377,6 +377,7 @@
     async function refresh() {
         if (loading) return;
         loading = true;
+        lastRefresh = Date.now();
         try {
             const [live, remote] = await Promise.all([fetchLive(), fetchRemoteHistory()]);
             remoteOk = !!remote;
@@ -493,16 +494,26 @@
         if (snapshot) fitVisible();
     };
 
+    // Les navigateurs ralentissent les timers des onglets en arrière-plan : on rattrape au retour
+    let lastRefresh = 0;
+    function onVisible() {
+        if (document.visibilityState === 'visible' && Date.now() - lastRefresh > 60_000) refresh();
+    }
+
     onMount(() => {
         layer = new RaceLayer(id => select(id));
         refresh();
         timer = setInterval(refresh, REFRESH_MS);
+        document.addEventListener('visibilitychange', onVisible);
+        window.addEventListener('online', refresh);
     });
 
     onDestroy(() => {
         playing = false;
         cancelAnimationFrame(raf);
         if (timer) clearInterval(timer);
+        document.removeEventListener('visibilitychange', onVisible);
+        window.removeEventListener('online', refresh);
         layer?.destroy();
         layer = null;
     });
