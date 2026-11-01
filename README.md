@@ -1,49 +1,86 @@
 # ⛵ Route du Rhum 2026 · Tracker pour Windy
 
-Plugin Windy pour suivre toute la flotte de la Route du Rhum 2026 par-dessus les cartes météo.
+Suis toute la flotte de la Route du Rhum 2026 en direct, **par-dessus les cartes météo de Windy** : vent, vagues, pression… et les 115 bateaux de Saint-Malo à Pointe-à-Pitre.
 
-- **Flotte complète** : 6 classes, bateaux orientés selon leur cap (silhouette mono ou multicoque), couleurs officielles
-- **Historique des traces** : complètes, 48 h, 12 h ou aucune ; trace du bateau sélectionné mise en avant (halo, le reste de la flotte estompé)
-- **Replay** : curseur temporel depuis le départ, lecture à ×1/×3/×6/×12 h/s, positions interpolées et classement recalculé à chaque instant
-- **Classement** par classe, recherche, favoris ★ (mémorisés)
-- **Fiche bateau** : rang, vitesse, cap, distance à l'arrivée, écart au leader, distance sur 24 h, vent/vagues/température à bord, courbes de vitesse et de classement
-- **Suivi** : la carte suit le bateau sélectionné, y compris pendant le replay
+## Ce que tu peux faire
 
-## Architecture
+- 🗺️ **Voir toute la flotte** sur la carte : chaque bateau a sa couleur officielle et une silhouette selon sa classe, orientée dans le sens de sa route
+- 🧭 **Suivre les traces** de chaque bateau : complètes, sur les dernières 48 h ou 12 h
+- ⏪ **Rejouer la course** depuis le départ en accéléré, avec le classement recalculé à chaque instant
+- 🏆 **Consulter le classement** par classe, chercher un bateau ou un skipper
+- ⭐ **Mettre tes favoris** en avant : ils restent mémorisés d'une visite à l'autre
+- 📊 **Ouvrir la fiche d'un bateau** : rang, vitesse, cap, distance à l'arrivée, écart au leader, météo à bord, courbes de vitesse et de classement
+- 🎯 **Suivre un bateau** : la carte le garde au centre, y compris pendant le replay
 
-```
-tracker Geovoile ──► relais live.json (Cloudflare Worker) ──┬──► plugin (positions live, toutes les 10 min)
-                                                            └──► GitHub Action /15 min ──► data/history.json ──► plugin (historique)
-```
+Les positions se mettent à jour automatiquement à chaque nouveau rapport officiel (environ toutes les heures).
 
-Le flux live ne fournit que la **dernière position** de chaque bateau. L'historique est donc reconstitué de deux façons :
+## Reconnaître les bateaux sur la carte
 
-1. **GitHub Action** (`collector/`) : elle accumule toutes les positions dans `data/history.json`, servi par raw.githubusercontent.com. Tous les utilisateurs voient alors la même trace complète.
-2. **Navigateur** : en complément, le plugin accumule localement (localStorage) chaque rapport reçu.
+| Classe | Silhouette | En vrai |
+|---|---|---|
+| **Ultim** | grand trimaran, longs flotteurs | les géants de 32 m, les plus rapides |
+| **Ocean Fifty** | petit trimaran compact | trimarans de 15 m |
+| **IMOCA** | monocoque large avec foils | les bateaux du Vendée Globe, 18 m |
+| **Class40** | monocoque à étrave carrée | 12 m, la classe la plus nombreuse |
+| **Vintage Multi** | catamaran | multicoques d'anciennes éditions |
+| **Vintage Mono** | monocoque fin et pointu | voiliers classiques |
 
-## Mise en place
+La taille des silhouettes respecte à peu près la taille réelle des bateaux.
 
-1. Crée un dépôt **public** sur GitHub et pousse ce dossier.
-2. Dans `src/lib/data.ts`, remplace `<user>/<repo>` dans `HISTORY_URL` (et dans `src/pluginConfig.ts`).
-3. Onglet **Actions** du dépôt : active les workflows, puis lance « Collecte des positions » une fois à la main (`Run workflow`).
-4. Build : `npm i && npm run build` → `dist/plugin.min.js`.
+## Installer le plugin
 
-### Tester dans Windy
+Il faut un **ordinateur** et un navigateur récent (Chrome, Firefox, Edge, Safari).
+
+1. Va sur **https://www.windy.com/developer-mode**.
+2. Colle cette adresse dans le champ prévu :
+   ```
+   https://cdn.jsdelivr.net/gh/AugTop/rhum-tracker@main/dist/plugin.js
+   ```
+3. Valide : le panneau **Route du Rhum 2026** s'ouvre à droite de la carte.
+
+Pour le retrouver plus tard, refais la même manipulation.
+
+## Bien démarrer
+
+- **Cliquer sur un bateau** (sur la carte ou dans le classement) ouvre sa fiche. **Suivre** fait suivre le bateau par la carte.
+- **Les onglets de classe** (Ultim, IMOCA, Class40…) filtrent le classement.
+- **La barre du bas** permet de rejouer la course : ▶ pour lancer, le curseur pour se déplacer dans le temps, **Direct** pour revenir à la position actuelle.
+- **⚙** règle l'affichage : longueur des traces, noms affichés, couleurs par bateau ou par classe.
+- **⟳** force une mise à jour.
+- Change de couche météo dans Windy (vent, vagues, rafales…) pour voir les conditions que rencontrent les bateaux.
+
+## Questions fréquentes
+
+**Les traces ne remontent pas jusqu'au départ.**
+Le tracker officiel ne fournit que la position actuelle des bateaux. Les traces sont donc reconstituées en enregistrant chaque position au fil de la course, à partir du moment où l'enregistrement a commencé.
+
+**Les positions ne bougent pas.**
+Les positions officielles sont publiées environ une fois par heure. Entre deux rapports, les bateaux ne bougent pas sur la carte. L'heure du dernier rapport est indiquée en haut du panneau.
+
+**Un bateau n'apparaît pas.**
+Il a peut-être abandonné ou n'émet plus. Vérifie aussi que la recherche est vide et que l'onglet **Tous** est sélectionné.
+
+## À propos
+
+Projet personnel et gratuit, **non affilié** à l'organisation de la Route du Rhum ni à Windy. Les positions proviennent du tracker officiel de la course, via un relais tiers non officiel.
+
+Une idée, un bug ? [Ouvre une issue](https://github.com/AugTop/rhum-tracker/issues).
+
+---
+
+<details>
+<summary>Pour les développeurs</summary>
 
 ```bash
-npm start            # sert https://localhost:9999/plugin.js
+npm i
+npm start        # sert https://localhost:9999/plugin.js (à charger dans windy.com/developer-mode)
+npm run build    # compile dans dist/
 ```
 
-Ouvre https://localhost:9999/plugin.js une fois pour accepter le certificat, puis va sur https://www.windy.com/developer-mode et charge cette URL.
+- `src/lib/boats.ts` : liste des bateaux (nom, skipper, classe, couleur).
+- `src/lib/mapLayer.ts` : rendu de la carte et silhouettes des bateaux.
+- `collector/` + `.github/workflows/collect.yml` : toutes les 15 min, une GitHub Action ajoute les positions dans `data/history.json`. Le plugin lit ce fichier pour afficher les traces complètes.
+- `.github/workflows/publish-plugin.yml` : publication sur Windy (secret `WINDY_API_KEY` requis).
+- Pensez à recompiler et versionner `dist/` : c'est lui qui est servi par jsDelivr.
 
-### Publier
-
-Suis https://docs.windy-plugins.com/ (clé API Windy + upload de `dist/`). `private: true` dans `pluginConfig.ts` : passe-le à `false` si tu veux le proposer publiquement.
-
-## Compléter la liste des bateaux
-
-`src/lib/boats.ts` contient les noms, skippers et couleurs officielles. Si un bateau n'y figure pas, le plugin déduit quand même sa classe (les rapports Geovoile sont groupés par classe) et l'affiche comme « Bateau n°id ». Il suffit d'ajouter une ligne `b('id', 'Nom', 'Classe', '#couleur', 'Skipper')`.
-
-## Données
-
-Positions issues du tracker officiel Geovoile, via un relais tiers non officiel. Projet personnel, non affilié à l'organisation de la course.
+</details>

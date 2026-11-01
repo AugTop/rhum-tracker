@@ -10,8 +10,8 @@ const __pluginConfig =  {
   "mobileUI": "fullscreen",
   "routerPath": "/rhum-tracker",
   "private": true,
-  "built": 1793563140166,
-  "builtReadable": "2026-11-01T19:59:00.166Z",
+  "built": 1793563690850,
+  "builtReadable": "2026-11-01T20:08:10.850Z",
   "screenshot": "screenshot.jpg"
 };
 
@@ -1565,11 +1565,28 @@ function segSpeed(a, b) {
     return d;
 }
 
+// Silhouettes vues du dessus, étrave vers le haut, à l'échelle approximative des vrais bateaux
+// (Ultim 32 m > IMOCA 18 m > Ocean Fifty 15 m > Class40 12 m).
+const mirror = (d)=>`<path d="${d}"/><path transform="matrix(-1 0 0 1 24 0)" d="${d}"/>`;
 const MONO = '<path d="M12 1.5c3.2 4.6 4.6 9.6 4 15.4-.2 1.9-.6 3.5-1.1 5.1H9.1c-.5-1.6-.9-3.2-1.1-5.1-.6-5.8.8-10.8 4-15.4z"/>';
-const MULTI = '<path d="M12 1.5c2 3.6 2.6 7.6 2.3 12.6-.1 2.6-.5 5.4-1 7.9h-2.6c-.5-2.5-.9-5.3-1-7.9C9.4 9.1 10 5.1 12 1.5z"/>' + '<path d="M5.2 8.5c1.2 2.4 1.5 5.4 1.2 9.2-.1 1.4-.3 2.8-.6 4.3H4.4c-.3-1.5-.5-2.9-.6-4.3-.3-3.8 0-6.8 1.4-9.2z"/>' + '<path d="M18.8 8.5c1.4 2.4 1.7 5.4 1.4 9.2-.1 1.4-.3 2.8-.6 4.3h-1.4c-.3-1.5-.5-2.9-.6-4.3-.3-3.8 0-6.8 1.2-9.2z"/>' + '<rect x="4.6" y="12.2" width="14.8" height="1.3" rx=".6"/>';
+const MULTI = '<path d="M12 1.5c2 3.6 2.6 7.6 2.3 12.6-.1 2.6-.5 5.4-1 7.9h-2.6c-.5-2.5-.9-5.3-1-7.9C9.4 9.1 10 5.1 12 1.5z"/>' + mirror('M5.2 8.5c1.2 2.4 1.5 5.4 1.2 9.2-.1 1.4-.3 2.8-.6 4.3H4.4c-.3-1.5-.5-2.9-.6-4.3-.3-3.8 0-6.8 1.4-9.2z') + '<rect x="4.6" y="12.2" width="14.8" height="1.3" rx=".6"/>';
+const SHAPES = {
+    // Géant de 32 m : coque centrale effilée, longs flotteurs, deux bras de liaison
+    Ultim: '<rect x="3" y="8.6" width="18" height="1.2" rx=".6"/><rect x="3" y="15.6" width="18" height="1.2" rx=".6"/>' + mirror('M3.5 5c.9 2.5 1.2 6 1.1 10-.1 2.5-.3 4.5-.6 6H3c-.3-1.5-.5-3.5-.6-6-.1-4 .2-7.5 1.1-10z') + '<path d="M12 1c1.3 3 1.8 7 1.7 12-.1 4-.5 7.5-.9 10h-1.6c-.4-2.5-.8-6-.9-10-.1-5 .4-9 1.7-12z"/>',
+    // Trimaran compact de 15 m, presque aussi large que long
+    'Ocean Fifty': '<rect x="4.5" y="10" width="15" height="1.2" rx=".6"/><rect x="4.5" y="15" width="15" height="1.2" rx=".6"/>' + mirror('M5 6.5c1 2 1.3 4.5 1.2 7-.1 2-.3 3.5-.6 5H4.4c-.3-1.5-.5-3-.6-5-.1-2.5.2-5 1.2-7z') + '<path d="M12 5c1.5 2.5 2 5.5 1.9 8.5-.1 2-.4 4-.8 5.5h-2.2c-.4-1.5-.7-3.5-.8-5.5-.1-3 .4-6 1.9-8.5z"/>',
+    // Monocoque de 18 m à étrave ronde et large, foils déployés de chaque côté
+    IMOCA: mirror('M7.6 9.2C5.5 9.6 4 10.4 3 11.6l.6.6c1-.9 2.4-1.5 3.9-1.7z') + '<path d="M12 3.5c3.2 1.1 4.6 4.5 4.6 8.5 0 3.5-.4 6.3-.9 8.5H8.3c-.5-2.2-.9-5-.9-8.5 0-4 1.4-7.4 4.6-8.5z"/>',
+    // Monocoque de 12 m à étrave « scow » plate et carrée
+    Class40: '<path d="M10 5.5h4c1.2 1 1.6 3.5 1.6 6 0 3-.3 5.3-.6 7H9c-.3-1.7-.6-4-.6-7 0-2.5.4-5 1.6-6z"/>',
+    // Catamaran classique, coques fines reliées par deux bras
+    'Vintage Multi': '<rect x="7" y="9" width="10" height="1.2" rx=".6"/><rect x="7" y="15" width="10" height="1.2" rx=".6"/>' + mirror('M7.5 4.5c1.3 2.5 1.7 5.5 1.6 8.5-.1 2.5-.4 4.7-.8 6.5H6.7c-.4-1.8-.7-4-.8-6.5-.1-3 .3-6 1.6-8.5z'),
+    // Voilier classique étroit, étrave fine et arrière pointu
+    'Vintage Mono': '<path d="M12 4.5c1.7 2.5 2.5 5.5 2.5 8.5 0 2.8-.8 5-2.5 6.5-1.7-1.5-2.5-3.7-2.5-6.5 0-3 .8-6 2.5-8.5z"/>'
+};
 const esc = (s)=>s.replace(/[&<>"]/g, (c)=>`&#${c.charCodeAt(0)};`);
 function iconHtml(b, color, heading, sel, fav, label) {
-    const shape = MULTIHULLS.has(b.className) ? MULTI : MONO;
+    const shape = SHAPES[b.className] ?? (MULTIHULLS.has(b.className) ? MULTI : MONO);
     const cls = [
         'rr-boat',
         sel && 'is-sel',
