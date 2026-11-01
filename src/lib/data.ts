@@ -4,8 +4,8 @@ import { BOATS_BY_ID, CLASSES, RACE_START } from './boats';
 // Flux live (relais du tracker officiel Geovoile).
 export const LIVE_URL = 'https://route-du-rhum-live.andamarco.workers.dev/live.json';
 // Historique complet collecté par la GitHub Action du dépôt (voir collector/).
-// Remplace <user>/<repo> par ton dépôt public. Laisser vide = historique local uniquement.
-export const HISTORY_URL = 'https://raw.githubusercontent.com/<user>/<repo>/main/data/history.json';
+// Laisser vide = historique local uniquement.
+export const HISTORY_URL = 'https://raw.githubusercontent.com/AugTop/rhum-tracker/main/data/history.json';
 
 const LS_KEY = 'rr2026-history-v1';
 

@@ -8,7 +8,7 @@ const config: ExternalPluginConfig = {
     description:
         'Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, replay, classement par classe et fiche bateau.',
     author: 'Augustin',
-    repository: 'https://github.com/<user>/windy-plugin-rhum-tracker',
+    repository: 'https://github.com/AugTop/rhum-tracker',
     desktopUI: 'rhpane',
     mobileUI: 'fullscreen',
     routerPath: '/rhum-tracker',
