@@ -1,16 +1,16 @@
 {
   "name": "windy-plugin-rhum-tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "⛵",
   "title": "Route du Rhum 2026 · Tracker",
-  "description": "Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, replay, classement par classe et fiche bateau.",
+  "description": "Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, classement par classe et fiche bateau.",
   "author": "Augustin",
   "repository": "https://github.com/AugTop/rhum-tracker",
   "desktopUI": "rhpane",
   "mobileUI": "fullscreen",
   "routerPath": "/rhum-tracker",
   "private": true,
-  "built": 1793563690911,
-  "builtReadable": "2026-11-01T20:08:10.911Z",
+  "built": 1793563975082,
+  "builtReadable": "2026-11-01T20:12:55.082Z",
   "screenshot": "screenshot.jpg"
 }

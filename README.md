@@ -6,11 +6,10 @@ Suis toute la flotte de la Route du Rhum 2026 en direct, **par-dessus les cartes
 
 - 🗺️ **Voir toute la flotte** sur la carte : chaque bateau a sa couleur officielle et une silhouette selon sa classe, orientée dans le sens de sa route
 - 🧭 **Suivre les traces** de chaque bateau : complètes, sur les dernières 48 h ou 12 h
-- ⏪ **Rejouer la course** depuis le départ en accéléré, avec le classement recalculé à chaque instant
 - 🏆 **Consulter le classement** par classe, chercher un bateau ou un skipper
 - ⭐ **Mettre tes favoris** en avant : ils restent mémorisés d'une visite à l'autre
 - 📊 **Ouvrir la fiche d'un bateau** : rang, vitesse, cap, distance à l'arrivée, écart au leader, météo à bord, courbes de vitesse et de classement
-- 🎯 **Suivre un bateau** : la carte le garde au centre, y compris pendant le replay
+- 🎯 **Suivre un bateau** : la carte le garde au centre
 
 Les positions se mettent à jour automatiquement à chaque nouveau rapport officiel (environ toutes les heures).
 
@@ -44,7 +43,6 @@ Pour le retrouver plus tard, refais la même manipulation.
 
 - **Cliquer sur un bateau** (sur la carte ou dans le classement) ouvre sa fiche. **Suivre** fait suivre le bateau par la carte.
 - **Les onglets de classe** (Ultim, IMOCA, Class40…) filtrent le classement.
-- **La barre du bas** permet de rejouer la course : ▶ pour lancer, le curseur pour se déplacer dans le temps, **Direct** pour revenir à la position actuelle.
 - **⚙** règle l'affichage : longueur des traces, noms affichés, couleurs par bateau ou par classe.
 - **⟳** force une mise à jour.
 - Change de couche météo dans Windy (vent, vagues, rafales…) pour voir les conditions que rencontrent les bateaux.

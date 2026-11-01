@@ -1,6 +1,6 @@
 {
     "name": "windy-plugin-rhum-tracker",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Route du Rhum 2026 tracker pour Windy",
     "main": "dist/plugin.min.js",
     "type": "module",

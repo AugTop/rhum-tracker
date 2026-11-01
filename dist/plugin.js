@@ -1,17 +1,17 @@
 const __pluginConfig =  {
   "name": "windy-plugin-rhum-tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "⛵",
   "title": "Route du Rhum 2026 · Tracker",
-  "description": "Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, replay, classement par classe et fiche bateau.",
+  "description": "Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, classement par classe et fiche bateau.",
   "author": "Augustin",
   "repository": "https://github.com/AugTop/rhum-tracker",
   "desktopUI": "rhpane",
   "mobileUI": "fullscreen",
   "routerPath": "/rhum-tracker",
   "private": true,
-  "built": 1793563690850,
-  "builtReadable": "2026-11-01T20:08:10.850Z",
+  "built": 1793563975024,
+  "builtReadable": "2026-11-01T20:12:55.024Z",
   "screenshot": "screenshot.jpg"
 };
 
@@ -1775,92 +1775,44 @@ class RaceLayer {
 const { Map: Map_1 } = globals;
 
 function add_css(target) {
-	append_styles(target, "svelte-9yg79b", ".rr.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#e8edf3;font-size:13px;padding-bottom:8px}.rr.svelte-9yg79b button.svelte-9yg79b.svelte-9yg79b{font:inherit;color:inherit;cursor:pointer}.rr-head.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}.rr-title.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;gap:6px;cursor:pointer}.rr-title.svelte-9yg79b h1.svelte-9yg79b.svelte-9yg79b{margin:0;font-size:20px;font-weight:800;letter-spacing:-0.02em;line-height:1.1}.rr-title.svelte-9yg79b h1 span.svelte-9yg79b.svelte-9yg79b{background:linear-gradient(90deg, #2ee6a6, #3ea8ff);-webkit-background-clip:text;background-clip:text;color:transparent}.rr-back.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{font-size:22px;line-height:1.6;color:#8a97a8}.rr-kicker.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#8a97a8}.rr-meta.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;flex-direction:column;align-items:flex-end;gap:3px}.rr-badge.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{font-size:10px;font-weight:700;letter-spacing:0.08em;padding:2px 7px;border-radius:20px}.rr-badge.live.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:rgba(255, 77, 94, 0.15);color:#ff6b7a}.rr-badge.live.svelte-9yg79b i.svelte-9yg79b.svelte-9yg79b{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff4d5e;margin-right:5px;animation:svelte-9yg79b-rr-blink 1.4s infinite}.rr-badge.replay.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:rgba(62, 168, 255, 0.15);color:#6dbdff}.rr-clock.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{font-variant-numeric:tabular-nums;font-weight:700;font-size:12px}.rr-icon.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:none;border:0;font-size:16px;padding:0}.rr-icon.spin.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{animation:svelte-9yg79b-rr-spin 1s linear infinite}.rr-sub.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#8a97a8;font-size:11px;margin-bottom:10px}.rr-warn.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#ffb020}.rr-empty.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{padding:30px 10px;text-align:center;color:#8a97a8}.rr-empty.svelte-9yg79b .rr-btn.svelte-9yg79b.svelte-9yg79b{margin-top:10px}.rr-loader.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:block;margin:0 auto 10px;width:22px;height:22px;border:2px solid rgba(255, 255, 255, 0.08);border-top-color:#2ee6a6;border-radius:50%;animation:svelte-9yg79b-rr-spin 0.8s linear infinite}.rr-btn.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:rgba(255, 255, 255, 0.06);border:1px solid rgba(255, 255, 255, 0.08);border-radius:8px;padding:5px 9px;font-size:12px;white-space:nowrap;transition:background 0.15s}.rr-btn.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b:hover{background:rgba(255, 255, 255, 0.12)}.rr-btn.on.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:rgba(46, 230, 166, 0.16);border-color:rgba(46, 230, 166, 0.5);color:#2ee6a6}.rr-card.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{position:relative;background:linear-gradient(160deg, color-mix(in srgb, var(--c) 18%, #162131), #162131 55%);border:1px solid color-mix(in srgb, var(--c) 35%, transparent);border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:0 8px 24px rgba(0, 0, 0, 0.3)}.rr-card-top.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;justify-content:space-between;gap:8px}.rr-card-top.svelte-9yg79b h2.svelte-9yg79b.svelte-9yg79b{margin:4px 0 1px;font-size:16px;font-weight:800;line-height:1.15}.rr-skipper.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#c3ccd8}.rr-skipper.svelte-9yg79b em.svelte-9yg79b.svelte-9yg79b{font-style:normal;font-size:10px;color:#8a97a8;border:1px solid rgba(255, 255, 255, 0.08);border-radius:4px;padding:0 4px;margin-left:4px}.rr-pill.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--c);background:color-mix(in srgb, var(--c) 15%, transparent);border-radius:20px;padding:1px 8px}.rr-rank.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{text-align:right}.rr-rank.svelte-9yg79b b.svelte-9yg79b.svelte-9yg79b{font-size:30px;font-weight:900;line-height:1}.rr-rank.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{color:#8a97a8}.rr-stats.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:grid;grid-template-columns:repeat(3, 1fr);gap:6px;margin:10px 0 8px}.rr-stats.svelte-9yg79b div.svelte-9yg79b.svelte-9yg79b{background:rgba(0, 0, 0, 0.22);border-radius:9px;padding:6px 8px}.rr-stats.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{display:block;font-size:10px;color:#8a97a8;text-transform:uppercase;letter-spacing:0.05em}.rr-stats.svelte-9yg79b b.svelte-9yg79b.svelte-9yg79b{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}.rr-stats.svelte-9yg79b i.svelte-9yg79b.svelte-9yg79b{font-style:normal;font-size:10px;color:#8a97a8;margin-left:3px}.rr-wx.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-weight:700;margin-bottom:8px}.rr-wx.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{font-weight:400;color:#8a97a8}.rr-arrow.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:inline-block;width:14px;text-align:center;color:#6dbdff}.rr-chart.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{margin-top:6px}.rr-chart-h.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#8a97a8}.rr-chart-h.svelte-9yg79b span.svelte-9yg79b.svelte-9yg79b{text-transform:none;letter-spacing:0}.rr-card-actions.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;gap:6px;margin-top:10px}.rr-card-actions.svelte-9yg79b .rr-btn.svelte-9yg79b.svelte-9yg79b:first-child{flex:1}.rr-tabs.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;gap:5px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.rr-tabs.svelte-9yg79b button.svelte-9yg79b.svelte-9yg79b{--c:#9aa4b2;flex:none;display:flex;align-items:center;gap:5px;background:rgba(255, 255, 255, 0.05);border:1px solid transparent;border-radius:20px;padding:4px 10px;font-size:12px}.rr-tabs.svelte-9yg79b button i.svelte-9yg79b.svelte-9yg79b{width:7px;height:7px;border-radius:50%;background:var(--c)}.rr-tabs.svelte-9yg79b button small.svelte-9yg79b.svelte-9yg79b{color:#8a97a8;font-size:10px}.rr-tabs.svelte-9yg79b button.on.svelte-9yg79b.svelte-9yg79b{border-color:var(--c);background:color-mix(in srgb, var(--c) 16%, transparent)}.rr-tools.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;gap:6px;margin:4px 0 8px}.rr-search.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{flex:1;min-width:0;background:rgba(255, 255, 255, 0.06);border:1px solid rgba(255, 255, 255, 0.08);border-radius:8px;color:inherit;padding:5px 9px;font-size:12px;outline:none}.rr-search.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b:focus{border-color:rgba(46, 230, 166, 0.5)}.rr-settings.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:rgba(255, 255, 255, 0.03);border:1px solid rgba(255, 255, 255, 0.08);border-radius:10px;padding:8px;margin-bottom:8px;display:grid;gap:6px}.rr-seg.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.rr-seg.svelte-9yg79b span.svelte-9yg79b.svelte-9yg79b{width:62px;font-size:10px;text-transform:uppercase;color:#8a97a8}.rr-seg.svelte-9yg79b button.svelte-9yg79b.svelte-9yg79b{background:none;border:1px solid rgba(255, 255, 255, 0.08);border-radius:6px;padding:2px 7px;font-size:11px}.rr-seg.svelte-9yg79b button.on.svelte-9yg79b.svelte-9yg79b{background:#e8edf3;color:#0f1722;border-color:#e8edf3}.rr-list.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{list-style:none;margin:0;padding:0}.rr-list.svelte-9yg79b li.svelte-9yg79b.svelte-9yg79b{display:grid;grid-template-columns:24px 4px 1fr auto 18px;align-items:center;gap:8px;padding:6px 6px;border-radius:9px;cursor:pointer;transition:background 0.12s}.rr-list.svelte-9yg79b li.svelte-9yg79b.svelte-9yg79b:hover{background:rgba(255, 255, 255, 0.05)}.rr-list.svelte-9yg79b li.sel.svelte-9yg79b.svelte-9yg79b{background:color-mix(in srgb, var(--c) 14%, transparent)}.rr-list.svelte-9yg79b li.out.svelte-9yg79b.svelte-9yg79b{opacity:0.5}.rr-list.svelte-9yg79b li.svelte-9yg79b+li.svelte-9yg79b{border-top:1px solid rgba(255, 255, 255, 0.04)}.rr-none.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#8a97a8;justify-content:center;display:block !important;text-align:center}.rr-pos.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;font-size:12px}.rr-swatch.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{width:4px;height:26px;border-radius:2px;background:var(--c)}.rr-who.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{min-width:0}.rr-who.svelte-9yg79b b.svelte-9yg79b.svelte-9yg79b,.rr-who.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rr-who.svelte-9yg79b b.svelte-9yg79b.svelte-9yg79b{font-weight:700}.rr-who.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{color:#8a97a8;font-size:11px}.rr-num.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{text-align:right;font-variant-numeric:tabular-nums}.rr-num.svelte-9yg79b b.svelte-9yg79b.svelte-9yg79b{display:block;font-weight:700}.rr-num.svelte-9yg79b i.svelte-9yg79b.svelte-9yg79b{font-style:normal;font-size:9px;color:#8a97a8;margin-left:2px}.rr-num.svelte-9yg79b small.svelte-9yg79b.svelte-9yg79b{color:#8a97a8;font-size:11px}.rr-star.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{background:none;border:0;padding:0;color:#8a97a8;font-size:14px}.rr-star.on.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{color:#ffce21}.rr-replay.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{position:sticky;bottom:0;margin-top:10px;padding:10px;background:rgba(15, 23, 34, 0.92);backdrop-filter:blur(6px);border:1px solid rgba(255, 255, 255, 0.08);border-radius:12px}.rr-replay-row.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{display:flex;align-items:center;gap:8px}.rr-replay-row.small.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{margin-top:6px;justify-content:space-between;font-size:11px;color:#c3ccd8}.rr-replay-row.svelte-9yg79b input[type='range'].svelte-9yg79b.svelte-9yg79b{flex:1;appearance:none;height:4px;border-radius:2px;background:linear-gradient(90deg, #2ee6a6 var(--p), rgba(255, 255, 255, 0.15) var(--p));outline:none}.rr-replay-row.svelte-9yg79b input[type='range'].svelte-9yg79b.svelte-9yg79b::-webkit-slider-thumb{appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(46, 230, 166, 0.35)}.rr-replay-row.svelte-9yg79b input[type='range'].svelte-9yg79b.svelte-9yg79b::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:#fff}.rr-play.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{width:32px;height:32px;border-radius:50%;border:0;background:#2ee6a6;color:#0f1722 !important;font-size:12px;font-weight:900;flex:none}.rr-speeds.svelte-9yg79b button.svelte-9yg79b.svelte-9yg79b{background:none;border:0;padding:0 3px;font-size:11px;color:#8a97a8}.rr-speeds.svelte-9yg79b button.on.svelte-9yg79b.svelte-9yg79b{color:#2ee6a6;font-weight:700}.rr-src.svelte-9yg79b.svelte-9yg79b.svelte-9yg79b{margin-top:6px;font-size:10px;color:#8a97a8}@keyframes svelte-9yg79b-rr-blink{50%{opacity:0.25}}@keyframes svelte-9yg79b-rr-spin{to{transform:rotate(360deg)}}.rr-boat-wrap{background:none !important;border:0 !important}.rr-boat-wrap.is-dim{opacity:0.4}.rr-boat{position:relative;width:24px;height:24px;cursor:pointer}.rr-hull{width:24px;height:24px;fill:var(--c);stroke:rgba(0, 0, 0, 0.75);stroke-width:0.9;filter:drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));transition:transform 0.4s}.rr-boat.is-sel .rr-hull{stroke:#fff;stroke-width:1.2;transform-origin:50% 50%;scale:1.35}.rr-pulse{position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--c);animation:rr-pulse 1.8s ease-out infinite}.rr-label{position:absolute;left:22px;top:3px;white-space:nowrap;font:600 11px/1 system-ui, sans-serif;color:#fff;background:rgba(10, 16, 24, 0.78);border-left:3px solid var(--c);padding:3px 6px;border-radius:3px;pointer-events:none}.rr-boat.is-sel .rr-label{font-size:12px;background:var(--c);color:#0b1118;border-left-color:#fff}.rr-mark-wrap{background:none !important;border:0 !important}.rr-mark{position:relative}.rr-mark-dot{display:block;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #0b1118;box-shadow:0 0 0 2px #fff}.rr-mark-txt{position:absolute;left:20px;top:-1px;white-space:nowrap;font:700 11px/1 system-ui, sans-serif;color:#fff;text-shadow:0 1px 3px #000, 0 0 2px #000;text-transform:uppercase;letter-spacing:0.05em}@keyframes rr-pulse{from{transform:scale(0.6);opacity:0.9}to{transform:scale(1.6);opacity:0}}");
+	append_styles(target, "svelte-xk6txw", ".rr.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#e8edf3;font-size:13px;padding-bottom:8px}.rr.svelte-xk6txw button.svelte-xk6txw.svelte-xk6txw{font:inherit;color:inherit;cursor:pointer}.rr-head.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}.rr-title.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;gap:6px;cursor:pointer}.rr-title.svelte-xk6txw h1.svelte-xk6txw.svelte-xk6txw{margin:0;font-size:20px;font-weight:800;letter-spacing:-0.02em;line-height:1.1}.rr-title.svelte-xk6txw h1 span.svelte-xk6txw.svelte-xk6txw{background:linear-gradient(90deg, #2ee6a6, #3ea8ff);-webkit-background-clip:text;background-clip:text;color:transparent}.rr-back.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{font-size:22px;line-height:1.6;color:#8a97a8}.rr-kicker.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#8a97a8}.rr-meta.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;flex-direction:column;align-items:flex-end;gap:3px}.rr-badge.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{font-size:10px;font-weight:700;letter-spacing:0.08em;padding:2px 7px;border-radius:20px}.rr-badge.live.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:rgba(255, 77, 94, 0.15);color:#ff6b7a}.rr-badge.live.svelte-xk6txw i.svelte-xk6txw.svelte-xk6txw{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff4d5e;margin-right:5px;animation:svelte-xk6txw-rr-blink 1.4s infinite}.rr-clock.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{font-variant-numeric:tabular-nums;font-weight:700;font-size:12px}.rr-icon.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:none;border:0;font-size:16px;padding:0}.rr-icon.spin.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{animation:svelte-xk6txw-rr-spin 1s linear infinite}.rr-sub.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#8a97a8;font-size:11px;margin-bottom:10px}.rr-warn.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#ffb020}.rr-empty.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{padding:30px 10px;text-align:center;color:#8a97a8}.rr-empty.svelte-xk6txw .rr-btn.svelte-xk6txw.svelte-xk6txw{margin-top:10px}.rr-loader.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:block;margin:0 auto 10px;width:22px;height:22px;border:2px solid rgba(255, 255, 255, 0.08);border-top-color:#2ee6a6;border-radius:50%;animation:svelte-xk6txw-rr-spin 0.8s linear infinite}.rr-btn.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:rgba(255, 255, 255, 0.06);border:1px solid rgba(255, 255, 255, 0.08);border-radius:8px;padding:5px 9px;font-size:12px;white-space:nowrap;transition:background 0.15s}.rr-btn.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw:hover{background:rgba(255, 255, 255, 0.12)}.rr-btn.on.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:rgba(46, 230, 166, 0.16);border-color:rgba(46, 230, 166, 0.5);color:#2ee6a6}.rr-card.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{position:relative;background:linear-gradient(160deg, color-mix(in srgb, var(--c) 18%, #162131), #162131 55%);border:1px solid color-mix(in srgb, var(--c) 35%, transparent);border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:0 8px 24px rgba(0, 0, 0, 0.3)}.rr-card-top.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;justify-content:space-between;gap:8px}.rr-card-top.svelte-xk6txw h2.svelte-xk6txw.svelte-xk6txw{margin:4px 0 1px;font-size:16px;font-weight:800;line-height:1.15}.rr-skipper.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#c3ccd8}.rr-skipper.svelte-xk6txw em.svelte-xk6txw.svelte-xk6txw{font-style:normal;font-size:10px;color:#8a97a8;border:1px solid rgba(255, 255, 255, 0.08);border-radius:4px;padding:0 4px;margin-left:4px}.rr-pill.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--c);background:color-mix(in srgb, var(--c) 15%, transparent);border-radius:20px;padding:1px 8px}.rr-rank.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{text-align:right}.rr-rank.svelte-xk6txw b.svelte-xk6txw.svelte-xk6txw{font-size:30px;font-weight:900;line-height:1}.rr-rank.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{color:#8a97a8}.rr-stats.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:grid;grid-template-columns:repeat(3, 1fr);gap:6px;margin:10px 0 8px}.rr-stats.svelte-xk6txw div.svelte-xk6txw.svelte-xk6txw{background:rgba(0, 0, 0, 0.22);border-radius:9px;padding:6px 8px}.rr-stats.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{display:block;font-size:10px;color:#8a97a8;text-transform:uppercase;letter-spacing:0.05em}.rr-stats.svelte-xk6txw b.svelte-xk6txw.svelte-xk6txw{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}.rr-stats.svelte-xk6txw i.svelte-xk6txw.svelte-xk6txw{font-style:normal;font-size:10px;color:#8a97a8;margin-left:3px}.rr-wx.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-weight:700;margin-bottom:8px}.rr-wx.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{font-weight:400;color:#8a97a8}.rr-arrow.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:inline-block;width:14px;text-align:center;color:#6dbdff}.rr-chart.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{margin-top:6px}.rr-chart-h.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#8a97a8}.rr-chart-h.svelte-xk6txw span.svelte-xk6txw.svelte-xk6txw{text-transform:none;letter-spacing:0}.rr-card-actions.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;gap:6px;margin-top:10px}.rr-card-actions.svelte-xk6txw .rr-btn.svelte-xk6txw.svelte-xk6txw:first-child{flex:1}.rr-tabs.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;gap:5px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.rr-tabs.svelte-xk6txw button.svelte-xk6txw.svelte-xk6txw{--c:#9aa4b2;flex:none;display:flex;align-items:center;gap:5px;background:rgba(255, 255, 255, 0.05);border:1px solid transparent;border-radius:20px;padding:4px 10px;font-size:12px}.rr-tabs.svelte-xk6txw button i.svelte-xk6txw.svelte-xk6txw{width:7px;height:7px;border-radius:50%;background:var(--c)}.rr-tabs.svelte-xk6txw button small.svelte-xk6txw.svelte-xk6txw{color:#8a97a8;font-size:10px}.rr-tabs.svelte-xk6txw button.on.svelte-xk6txw.svelte-xk6txw{border-color:var(--c);background:color-mix(in srgb, var(--c) 16%, transparent)}.rr-tools.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;gap:6px;margin:4px 0 8px}.rr-search.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{flex:1;min-width:0;background:rgba(255, 255, 255, 0.06);border:1px solid rgba(255, 255, 255, 0.08);border-radius:8px;color:inherit;padding:5px 9px;font-size:12px;outline:none}.rr-search.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw:focus{border-color:rgba(46, 230, 166, 0.5)}.rr-settings.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:rgba(255, 255, 255, 0.03);border:1px solid rgba(255, 255, 255, 0.08);border-radius:10px;padding:8px;margin-bottom:8px;display:grid;gap:6px}.rr-seg.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.rr-seg.svelte-xk6txw span.svelte-xk6txw.svelte-xk6txw{width:62px;font-size:10px;text-transform:uppercase;color:#8a97a8}.rr-seg.svelte-xk6txw button.svelte-xk6txw.svelte-xk6txw{background:none;border:1px solid rgba(255, 255, 255, 0.08);border-radius:6px;padding:2px 7px;font-size:11px}.rr-seg.svelte-xk6txw button.on.svelte-xk6txw.svelte-xk6txw{background:#e8edf3;color:#0f1722;border-color:#e8edf3}.rr-list.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{list-style:none;margin:0;padding:0}.rr-list.svelte-xk6txw li.svelte-xk6txw.svelte-xk6txw{display:grid;grid-template-columns:24px 4px 1fr auto 18px;align-items:center;gap:8px;padding:6px 6px;border-radius:9px;cursor:pointer;transition:background 0.12s}.rr-list.svelte-xk6txw li.svelte-xk6txw.svelte-xk6txw:hover{background:rgba(255, 255, 255, 0.05)}.rr-list.svelte-xk6txw li.sel.svelte-xk6txw.svelte-xk6txw{background:color-mix(in srgb, var(--c) 14%, transparent)}.rr-list.svelte-xk6txw li.out.svelte-xk6txw.svelte-xk6txw{opacity:0.5}.rr-list.svelte-xk6txw li.svelte-xk6txw+li.svelte-xk6txw{border-top:1px solid rgba(255, 255, 255, 0.04)}.rr-none.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#8a97a8;justify-content:center;display:block !important;text-align:center}.rr-pos.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;font-size:12px}.rr-swatch.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{width:4px;height:26px;border-radius:2px;background:var(--c)}.rr-who.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{min-width:0}.rr-who.svelte-xk6txw b.svelte-xk6txw.svelte-xk6txw,.rr-who.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rr-who.svelte-xk6txw b.svelte-xk6txw.svelte-xk6txw{font-weight:700}.rr-who.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{color:#8a97a8;font-size:11px}.rr-num.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{text-align:right;font-variant-numeric:tabular-nums}.rr-num.svelte-xk6txw b.svelte-xk6txw.svelte-xk6txw{display:block;font-weight:700}.rr-num.svelte-xk6txw i.svelte-xk6txw.svelte-xk6txw{font-style:normal;font-size:9px;color:#8a97a8;margin-left:2px}.rr-num.svelte-xk6txw small.svelte-xk6txw.svelte-xk6txw{color:#8a97a8;font-size:11px}.rr-star.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{background:none;border:0;padding:0;color:#8a97a8;font-size:14px}.rr-star.on.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{color:#ffce21}.rr-src.svelte-xk6txw.svelte-xk6txw.svelte-xk6txw{margin-top:6px;font-size:10px;color:#8a97a8}@keyframes svelte-xk6txw-rr-blink{50%{opacity:0.25}}@keyframes svelte-xk6txw-rr-spin{to{transform:rotate(360deg)}}.rr-boat-wrap{background:none !important;border:0 !important}.rr-boat-wrap.is-dim{opacity:0.4}.rr-boat{position:relative;width:24px;height:24px;cursor:pointer}.rr-hull{width:24px;height:24px;fill:var(--c);stroke:rgba(0, 0, 0, 0.75);stroke-width:0.9;filter:drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));transition:transform 0.4s}.rr-boat.is-sel .rr-hull{stroke:#fff;stroke-width:1.2;transform-origin:50% 50%;scale:1.35}.rr-pulse{position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--c);animation:rr-pulse 1.8s ease-out infinite}.rr-label{position:absolute;left:22px;top:3px;white-space:nowrap;font:600 11px/1 system-ui, sans-serif;color:#fff;background:rgba(10, 16, 24, 0.78);border-left:3px solid var(--c);padding:3px 6px;border-radius:3px;pointer-events:none}.rr-boat.is-sel .rr-label{font-size:12px;background:var(--c);color:#0b1118;border-left-color:#fff}.rr-mark-wrap{background:none !important;border:0 !important}.rr-mark{position:relative}.rr-mark-dot{display:block;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #0b1118;box-shadow:0 0 0 2px #fff}.rr-mark-txt{position:absolute;left:20px;top:-1px;white-space:nowrap;font:700 11px/1 system-ui, sans-serif;color:#fff;text-shadow:0 1px 3px #000, 0 0 2px #000;text-transform:uppercase;letter-spacing:0.05em}@keyframes rr-pulse{from{transform:scale(0.6);opacity:0.9}to{transform:scale(1.6);opacity:0}}");
 }
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[81] = list[i];
+	child_ctx[69] = list[i];
+	const constants_0 = /*ranking*/ child_ctx[10].get(/*b*/ child_ctx[69].id);
+	child_ctx[70] = constants_0;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[84] = list[i];
-	const constants_0 = /*ranking*/ child_ctx[11].get(/*b*/ child_ctx[84].id);
-	child_ctx[85] = constants_0;
+	child_ctx[73] = list[i][0];
+	child_ctx[74] = list[i][1];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[88] = list[i][0];
-	child_ctx[89] = list[i][1];
-	return child_ctx;
-}
-
-function get_each_context_3(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[92] = list[i];
+	child_ctx[77] = list[i];
 	return child_ctx;
 }
 
 function get_if_ctx(ctx) {
 	const child_ctx = ctx.slice();
-	const constants_0 = /*sel*/ child_ctx[14].state;
-	child_ctx[95] = constants_0;
-	const constants_1 = /*ranking*/ child_ctx[11].get(/*sel*/ child_ctx[14].id);
-	child_ctx[85] = constants_1;
+	const constants_0 = /*sel*/ child_ctx[12].state;
+	child_ctx[80] = constants_0;
+	const constants_1 = /*ranking*/ child_ctx[10].get(/*sel*/ child_ctx[12].id);
+	child_ctx[70] = constants_1;
 	return child_ctx;
 }
 
-// (16:12) {:else}
-function create_else_block_4(ctx) {
-	let span;
-
-	return {
-		c() {
-			span = element("span");
-			span.textContent = "REPLAY";
-			attr(span, "class", "rr-badge replay svelte-9yg79b");
-		},
-		m(target, anchor) {
-			insert(target, span, anchor);
-		},
-		d(detaching) {
-			if (detaching) {
-				detach(span);
-			}
-		}
-	};
-}
-
-// (14:12) {#if isLive}
-function create_if_block_11(ctx) {
-	let span;
-
-	return {
-		c() {
-			span = element("span");
-			span.innerHTML = `<i class="svelte-9yg79b"></i>DIRECT`;
-			attr(span, "class", "rr-badge live svelte-9yg79b");
-		},
-		m(target, anchor) {
-			insert(target, span, anchor);
-		},
-		d(detaching) {
-			if (detaching) {
-				detach(span);
-			}
-		}
-	};
-}
-
-// (31:4) {:else}
+// (27:4) {:else}
 function create_else_block(ctx) {
 	let div0;
 	let t0;
-	let t1_value = /*fmtDate*/ ctx[42](/*snapshot*/ ctx[0].reportDate) + "";
+	let t1_value = /*fmtDate*/ ctx[35](/*snapshot*/ ctx[0].reportDate) + "";
 	let t1;
 	let t2;
 	let t3_value = /*snapshot*/ ctx[0].boats.length + "";
@@ -1879,7 +1831,7 @@ function create_else_block(ctx) {
 	let t11;
 	let t12;
 	let div1;
-	let input0;
+	let input;
 	let t13;
 	let button2;
 	let t15;
@@ -1887,63 +1839,38 @@ function create_else_block(ctx) {
 	let t17;
 	let t18;
 	let ol;
-	let each_blocks_1 = [];
+	let each_blocks = [];
 	let each1_lookup = new Map_1();
 	let t19;
-	let footer;
 	let div2;
-	let button4;
-	let t20_value = (/*playing*/ ctx[10] ? '❚❚' : '▶') + "";
 	let t20;
-	let button4_title_value;
 	let t21;
-	let input1;
-	let t22;
-	let button5;
-	let t24;
-	let div3;
-	let span0;
-	let t25_value = /*fmtDate*/ ctx[42](/*tView*/ ctx[13]) + "";
-	let t25;
-	let t26;
-	let span1;
-	let t27;
-	let div4;
-	let t28;
-	let t29;
 	let current;
 	let mounted;
 	let dispose;
-	let if_block0 = /*error*/ ctx[17] && create_if_block_10(ctx);
-	let if_block1 = /*sel*/ ctx[14] && create_if_block_4(get_if_ctx(ctx));
-	let each_value_3 = ensure_array_like(/*presentClasses*/ ctx[26]);
-	let each_blocks_2 = [];
+	let if_block0 = /*error*/ ctx[14] && create_if_block_10(ctx);
+	let if_block1 = /*sel*/ ctx[12] && create_if_block_4(get_if_ctx(ctx));
+	let each_value_2 = ensure_array_like(/*presentClasses*/ ctx[22]);
+	let each_blocks_1 = [];
 
-	for (let i = 0; i < each_value_3.length; i += 1) {
-		each_blocks_2[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 	}
 
-	let if_block2 = /*showSettings*/ ctx[18] && create_if_block_3(ctx);
-	let each_value_1 = ensure_array_like(/*rows*/ ctx[20]);
-	const get_key = ctx => /*b*/ ctx[84].id;
+	let if_block2 = /*showSettings*/ ctx[15] && create_if_block_3(ctx);
+	let each_value = ensure_array_like(/*rows*/ ctx[16]);
+	const get_key = ctx => /*b*/ ctx[69].id;
 
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		let child_ctx = get_each_context_1(ctx, each_value_1, i);
+	for (let i = 0; i < each_value.length; i += 1) {
+		let child_ctx = get_each_context(ctx, each_value, i);
 		let key = get_key(child_ctx);
-		each1_lookup.set(key, each_blocks_1[i] = create_each_block_1(key, child_ctx));
+		each1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
 	}
 
 	let each1_else = null;
 
-	if (!each_value_1.length) {
+	if (!each_value.length) {
 		each1_else = create_else_block_1();
-	}
-
-	let each_value = ensure_array_like([1, 3, 6, 12]);
-	let each_blocks = [];
-
-	for (let i = 0; i < 4; i += 1) {
-		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
 	}
 
 	return {
@@ -1963,8 +1890,8 @@ function create_else_block(ctx) {
 			button0.textContent = "Tous";
 			t8 = space();
 
-			for (let i = 0; i < each_blocks_2.length; i += 1) {
-				each_blocks_2[i].c();
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].c();
 			}
 
 			t9 = space();
@@ -1974,7 +1901,7 @@ function create_else_block(ctx) {
 			t11 = text(t11_value);
 			t12 = space();
 			div1 = element("div");
-			input0 = element("input");
+			input = element("input");
 			t13 = space();
 			button2 = element("button");
 			button2.textContent = "⤢";
@@ -1986,8 +1913,8 @@ function create_else_block(ctx) {
 			t18 = space();
 			ol = element("ol");
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				each_blocks_1[i].c();
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
 			}
 
 			if (each1_else) {
@@ -1995,62 +1922,26 @@ function create_else_block(ctx) {
 			}
 
 			t19 = space();
-			footer = element("footer");
 			div2 = element("div");
-			button4 = element("button");
-			t20 = text(t20_value);
-			t21 = space();
-			input1 = element("input");
-			t22 = space();
-			button5 = element("button");
-			button5.textContent = "Direct";
-			t24 = space();
-			div3 = element("div");
-			span0 = element("span");
-			t25 = text(t25_value);
-			t26 = space();
-			span1 = element("span");
-
-			for (let i = 0; i < 4; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t27 = space();
-			div4 = element("div");
-			t28 = text("Positions : tracker officiel (Geovoile)");
-			t29 = text(/*historyNote*/ ctx[21]);
-			attr(div0, "class", "rr-sub svelte-9yg79b");
-			attr(button0, "class", "svelte-9yg79b");
+			t20 = text("Positions : tracker officiel (Geovoile)");
+			t21 = text(/*historyNote*/ ctx[17]);
+			attr(div0, "class", "rr-sub svelte-xk6txw");
+			attr(button0, "class", "svelte-xk6txw");
 			toggle_class(button0, "on", /*tab*/ ctx[1] === 'all');
-			attr(small, "class", "svelte-9yg79b");
-			attr(button1, "class", "svelte-9yg79b");
+			attr(small, "class", "svelte-xk6txw");
+			attr(button1, "class", "svelte-xk6txw");
 			toggle_class(button1, "on", /*tab*/ ctx[1] === 'fav');
-			attr(nav, "class", "rr-tabs svelte-9yg79b");
-			attr(input0, "class", "rr-search svelte-9yg79b");
-			attr(input0, "placeholder", "Bateau, skipper…");
-			attr(button2, "class", "rr-btn svelte-9yg79b");
+			attr(nav, "class", "rr-tabs svelte-xk6txw");
+			attr(input, "class", "rr-search svelte-xk6txw");
+			attr(input, "placeholder", "Bateau, skipper…");
+			attr(button2, "class", "rr-btn svelte-xk6txw");
 			attr(button2, "title", "Voir les bateaux listés");
-			attr(button3, "class", "rr-btn svelte-9yg79b");
+			attr(button3, "class", "rr-btn svelte-xk6txw");
 			attr(button3, "title", "Affichage");
-			toggle_class(button3, "on", /*showSettings*/ ctx[18]);
-			attr(div1, "class", "rr-tools svelte-9yg79b");
-			attr(ol, "class", "rr-list svelte-9yg79b");
-			attr(button4, "class", "rr-play svelte-9yg79b");
-			attr(button4, "title", button4_title_value = /*playing*/ ctx[10] ? 'Pause' : 'Lecture');
-			attr(input1, "type", "range");
-			attr(input1, "min", RACE_START);
-			attr(input1, "max", /*tNow*/ ctx[12]);
-			attr(input1, "step", "60");
-			input1.value = /*tView*/ ctx[13];
-			set_style(input1, "--p", (/*tView*/ ctx[13] - RACE_START) / Math.max(1, /*tNow*/ ctx[12] - RACE_START) * 100 + "%");
-			attr(input1, "class", "svelte-9yg79b");
-			attr(button5, "class", "rr-btn svelte-9yg79b");
-			toggle_class(button5, "on", /*isLive*/ ctx[15]);
-			attr(div2, "class", "rr-replay-row svelte-9yg79b");
-			attr(span1, "class", "rr-speeds svelte-9yg79b");
-			attr(div3, "class", "rr-replay-row small svelte-9yg79b");
-			attr(div4, "class", "rr-src svelte-9yg79b");
-			attr(footer, "class", "rr-replay svelte-9yg79b");
+			toggle_class(button3, "on", /*showSettings*/ ctx[15]);
+			attr(div1, "class", "rr-tools svelte-xk6txw");
+			attr(ol, "class", "rr-list svelte-xk6txw");
+			attr(div2, "class", "rr-src svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -2067,9 +1958,9 @@ function create_else_block(ctx) {
 			append(nav, button0);
 			append(nav, t8);
 
-			for (let i = 0; i < each_blocks_2.length; i += 1) {
-				if (each_blocks_2[i]) {
-					each_blocks_2[i].m(nav, null);
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				if (each_blocks_1[i]) {
+					each_blocks_1[i].m(nav, null);
 				}
 			}
 
@@ -2080,8 +1971,8 @@ function create_else_block(ctx) {
 			append(small, t11);
 			insert(target, t12, anchor);
 			insert(target, div1, anchor);
-			append(div1, input0);
-			set_input_value(input0, /*query*/ ctx[2]);
+			append(div1, input);
+			set_input_value(input, /*query*/ ctx[2]);
 			append(div1, t13);
 			append(div1, button2);
 			append(div1, t15);
@@ -2091,9 +1982,9 @@ function create_else_block(ctx) {
 			insert(target, t18, anchor);
 			insert(target, ol, anchor);
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				if (each_blocks_1[i]) {
-					each_blocks_1[i].m(ol, null);
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(ol, null);
 				}
 			}
 
@@ -2102,53 +1993,28 @@ function create_else_block(ctx) {
 			}
 
 			insert(target, t19, anchor);
-			insert(target, footer, anchor);
-			append(footer, div2);
-			append(div2, button4);
-			append(button4, t20);
+			insert(target, div2, anchor);
+			append(div2, t20);
 			append(div2, t21);
-			append(div2, input1);
-			append(div2, t22);
-			append(div2, button5);
-			append(footer, t24);
-			append(footer, div3);
-			append(div3, span0);
-			append(span0, t25);
-			append(div3, t26);
-			append(div3, span1);
-
-			for (let i = 0; i < 4; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(span1, null);
-				}
-			}
-
-			append(footer, t27);
-			append(footer, div4);
-			append(div4, t28);
-			append(div4, t29);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*click_handler_5*/ ctx[56]),
-					listen(button1, "click", /*click_handler_7*/ ctx[58]),
-					listen(input0, "input", /*input0_input_handler*/ ctx[59]),
-					listen(button2, "click", /*fitVisible*/ ctx[31]),
-					listen(button3, "click", /*click_handler_8*/ ctx[60]),
-					listen(button4, "click", /*togglePlay*/ ctx[35]),
-					listen(input1, "input", /*input_handler*/ ctx[71]),
-					listen(button5, "click", /*goLive*/ ctx[34])
+					listen(button0, "click", /*click_handler_5*/ ctx[48]),
+					listen(button1, "click", /*click_handler_7*/ ctx[50]),
+					listen(input, "input", /*input_input_handler*/ ctx[51]),
+					listen(button2, "click", /*fitVisible*/ ctx[27]),
+					listen(button3, "click", /*click_handler_8*/ ctx[52])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if ((!current || dirty[0] & /*snapshot*/ 1) && t1_value !== (t1_value = /*fmtDate*/ ctx[42](/*snapshot*/ ctx[0].reportDate) + "")) set_data(t1, t1_value);
+			if ((!current || dirty[0] & /*snapshot*/ 1) && t1_value !== (t1_value = /*fmtDate*/ ctx[35](/*snapshot*/ ctx[0].reportDate) + "")) set_data(t1, t1_value);
 			if ((!current || dirty[0] & /*snapshot*/ 1) && t3_value !== (t3_value = /*snapshot*/ ctx[0].boats.length + "")) set_data(t3, t3_value);
 
-			if (/*error*/ ctx[17]) {
+			if (/*error*/ ctx[14]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -2161,11 +2027,11 @@ function create_else_block(ctx) {
 				if_block0 = null;
 			}
 
-			if (/*sel*/ ctx[14]) {
+			if (/*sel*/ ctx[12]) {
 				if (if_block1) {
 					if_block1.p(get_if_ctx(ctx), dirty);
 
-					if (dirty[0] & /*sel*/ 16384) {
+					if (dirty[0] & /*sel*/ 4096) {
 						transition_in(if_block1, 1);
 					}
 				} else {
@@ -2188,27 +2054,27 @@ function create_else_block(ctx) {
 				toggle_class(button0, "on", /*tab*/ ctx[1] === 'all');
 			}
 
-			if (dirty[0] & /*presentClasses, tab*/ 67108866 | dirty[1] & /*classCount*/ 128) {
-				each_value_3 = ensure_array_like(/*presentClasses*/ ctx[26]);
+			if (dirty[0] & /*presentClasses, tab*/ 4194306 | dirty[1] & /*classCount*/ 1) {
+				each_value_2 = ensure_array_like(/*presentClasses*/ ctx[22]);
 				let i;
 
-				for (i = 0; i < each_value_3.length; i += 1) {
-					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
 
-					if (each_blocks_2[i]) {
-						each_blocks_2[i].p(child_ctx, dirty);
+					if (each_blocks_1[i]) {
+						each_blocks_1[i].p(child_ctx, dirty);
 					} else {
-						each_blocks_2[i] = create_each_block_3(child_ctx);
-						each_blocks_2[i].c();
-						each_blocks_2[i].m(nav, t9);
+						each_blocks_1[i] = create_each_block_2(child_ctx);
+						each_blocks_1[i].c();
+						each_blocks_1[i].m(nav, t9);
 					}
 				}
 
-				for (; i < each_blocks_2.length; i += 1) {
-					each_blocks_2[i].d(1);
+				for (; i < each_blocks_1.length; i += 1) {
+					each_blocks_1[i].d(1);
 				}
 
-				each_blocks_2.length = each_value_3.length;
+				each_blocks_1.length = each_value_2.length;
 			}
 
 			if ((!current || dirty[0] & /*favorites*/ 32) && t11_value !== (t11_value = /*favorites*/ ctx[5].size + "")) set_data(t11, t11_value);
@@ -2217,15 +2083,15 @@ function create_else_block(ctx) {
 				toggle_class(button1, "on", /*tab*/ ctx[1] === 'fav');
 			}
 
-			if (dirty[0] & /*query*/ 4 && input0.value !== /*query*/ ctx[2]) {
-				set_input_value(input0, /*query*/ ctx[2]);
+			if (dirty[0] & /*query*/ 4 && input.value !== /*query*/ ctx[2]) {
+				set_input_value(input, /*query*/ ctx[2]);
 			}
 
-			if (!current || dirty[0] & /*showSettings*/ 262144) {
-				toggle_class(button3, "on", /*showSettings*/ ctx[18]);
+			if (!current || dirty[0] & /*showSettings*/ 32768) {
+				toggle_class(button3, "on", /*showSettings*/ ctx[15]);
 			}
 
-			if (/*showSettings*/ ctx[18]) {
+			if (/*showSettings*/ ctx[15]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -2238,13 +2104,13 @@ function create_else_block(ctx) {
 				if_block2 = null;
 			}
 
-			if (dirty[0] & /*rows, selected, ranking, select, favorites, tab*/ 537921578 | dirty[1] & /*toggleFav, fx, statusLabel*/ 546) {
-				each_value_1 = ensure_array_like(/*rows*/ ctx[20]);
-				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key, 1, ctx, each_value_1, each1_lookup, ol, destroy_block, create_each_block_1, null, get_each_context_1);
+			if (dirty[0] & /*rows, selected, ranking, select, favorites, toggleFav, fx, tab*/ 838927402 | dirty[1] & /*statusLabel*/ 4) {
+				each_value = ensure_array_like(/*rows*/ ctx[16]);
+				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each1_lookup, ol, destroy_block, create_each_block, null, get_each_context);
 
-				if (!each_value_1.length && each1_else) {
+				if (!each_value.length && each1_else) {
 					each1_else.p(ctx, dirty);
-				} else if (!each_value_1.length) {
+				} else if (!each_value.length) {
 					each1_else = create_else_block_1();
 					each1_else.c();
 					each1_else.m(ol, null);
@@ -2254,52 +2120,7 @@ function create_else_block(ctx) {
 				}
 			}
 
-			if ((!current || dirty[0] & /*playing*/ 1024) && t20_value !== (t20_value = (/*playing*/ ctx[10] ? '❚❚' : '▶') + "")) set_data(t20, t20_value);
-
-			if (!current || dirty[0] & /*playing*/ 1024 && button4_title_value !== (button4_title_value = /*playing*/ ctx[10] ? 'Pause' : 'Lecture')) {
-				attr(button4, "title", button4_title_value);
-			}
-
-			if (!current || dirty[0] & /*tNow*/ 4096) {
-				attr(input1, "max", /*tNow*/ ctx[12]);
-			}
-
-			if (!current || dirty[0] & /*tView*/ 8192) {
-				input1.value = /*tView*/ ctx[13];
-			}
-
-			if (!current || dirty[0] & /*tView, tNow*/ 12288) {
-				set_style(input1, "--p", (/*tView*/ ctx[13] - RACE_START) / Math.max(1, /*tNow*/ ctx[12] - RACE_START) * 100 + "%");
-			}
-
-			if (!current || dirty[0] & /*isLive*/ 32768) {
-				toggle_class(button5, "on", /*isLive*/ ctx[15]);
-			}
-
-			if ((!current || dirty[0] & /*tView*/ 8192) && t25_value !== (t25_value = /*fmtDate*/ ctx[42](/*tView*/ ctx[13]) + "")) set_data(t25, t25_value);
-
-			if (dirty[0] & /*playSpeed*/ 524288) {
-				each_value = ensure_array_like([1, 3, 6, 12]);
-				let i;
-
-				for (i = 0; i < 4; i += 1) {
-					const child_ctx = get_each_context(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(span1, null);
-					}
-				}
-
-				for (; i < 4; i += 1) {
-					each_blocks[i].d(1);
-				}
-			}
-
-			if (!current || dirty[0] & /*historyNote*/ 2097152) set_data(t29, /*historyNote*/ ctx[21]);
+			if (!current || dirty[0] & /*historyNote*/ 131072) set_data(t21, /*historyNote*/ ctx[17]);
 		},
 		i(local) {
 			if (current) return;
@@ -2322,35 +2143,34 @@ function create_else_block(ctx) {
 				detach(t18);
 				detach(ol);
 				detach(t19);
-				detach(footer);
+				detach(div2);
 			}
 
 			if (if_block0) if_block0.d();
 			if (if_block1) if_block1.d(detaching);
-			destroy_each(each_blocks_2, detaching);
+			destroy_each(each_blocks_1, detaching);
 			if (if_block2) if_block2.d(detaching);
 
-			for (let i = 0; i < each_blocks_1.length; i += 1) {
-				each_blocks_1[i].d();
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].d();
 			}
 
 			if (each1_else) each1_else.d();
-			destroy_each(each_blocks, detaching);
 			mounted = false;
 			run_all(dispose);
 		}
 	};
 }
 
-// (29:24) 
+// (25:24) 
 function create_if_block_1(ctx) {
 	let div;
 
 	return {
 		c() {
 			div = element("div");
-			div.innerHTML = `<span class="rr-loader svelte-9yg79b"></span>Chargement de la flotte…`;
-			attr(div, "class", "rr-empty svelte-9yg79b");
+			div.innerHTML = `<span class="rr-loader svelte-xk6txw"></span>Chargement de la flotte…`;
+			attr(div, "class", "rr-empty svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -2366,7 +2186,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (24:4) {#if error && !snapshot}
+// (20:4) {#if error && !snapshot}
 function create_if_block(ctx) {
 	let div;
 	let b_1;
@@ -2383,12 +2203,12 @@ function create_if_block(ctx) {
 			b_1 = element("b");
 			b_1.textContent = "Données indisponibles";
 			br = element("br");
-			t1 = text(/*error*/ ctx[17]);
+			t1 = text(/*error*/ ctx[14]);
 			t2 = space();
 			button = element("button");
 			button.textContent = "Réessayer";
-			attr(button, "class", "rr-btn svelte-9yg79b");
-			attr(div, "class", "rr-empty svelte-9yg79b");
+			attr(button, "class", "rr-btn svelte-xk6txw");
+			attr(div, "class", "rr-empty svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -2399,12 +2219,12 @@ function create_if_block(ctx) {
 			append(div, button);
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*refresh*/ ctx[28]);
+				dispose = listen(button, "click", /*refresh*/ ctx[24]);
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*error*/ 131072) set_data(t1, /*error*/ ctx[17]);
+			if (dirty[0] & /*error*/ 16384) set_data(t1, /*error*/ ctx[14]);
 		},
 		i: noop,
 		o: noop,
@@ -2419,7 +2239,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (34:12) {#if error}
+// (30:12) {#if error}
 function create_if_block_10(ctx) {
 	let span;
 	let t;
@@ -2428,16 +2248,16 @@ function create_if_block_10(ctx) {
 		c() {
 			span = element("span");
 			t = text("· ⚠ mise à jour échouée");
-			attr(span, "class", "rr-warn svelte-9yg79b");
-			attr(span, "title", /*error*/ ctx[17]);
+			attr(span, "class", "rr-warn svelte-xk6txw");
+			attr(span, "title", /*error*/ ctx[14]);
 		},
 		m(target, anchor) {
 			insert(target, span, anchor);
 			append(span, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*error*/ 131072) {
-				attr(span, "title", /*error*/ ctx[17]);
+			if (dirty[0] & /*error*/ 16384) {
+				attr(span, "title", /*error*/ ctx[14]);
 			}
 		},
 		d(detaching) {
@@ -2448,21 +2268,21 @@ function create_if_block_10(ctx) {
 	};
 }
 
-// (38:8) {#if sel}
+// (34:8) {#if sel}
 function create_if_block_4(ctx) {
 	let article;
 	let div3;
 	let div1;
 	let span0;
-	let t0_value = /*sel*/ ctx[14].className + "";
+	let t0_value = /*sel*/ ctx[12].className + "";
 	let t0;
 	let t1;
 	let h2;
-	let t2_value = /*sel*/ ctx[14].name + "";
+	let t2_value = /*sel*/ ctx[12].name + "";
 	let t2;
 	let t3;
 	let div0;
-	let t4_value = (/*sel*/ ctx[14].skipper || '—') + "";
+	let t4_value = (/*sel*/ ctx[12].skipper || '—') + "";
 	let t4;
 	let t5;
 	let t6;
@@ -2472,24 +2292,24 @@ function create_if_block_4(ctx) {
 	let div4;
 	let small0;
 	let b0;
-	let t9_value = /*fx*/ ctx[36](/*selSpeed*/ ctx[25]) + "";
+	let t9_value = /*fx*/ ctx[29](/*selSpeed*/ ctx[21]) + "";
 	let t9;
 	let i0;
 	let t11;
 	let div5;
 	let small1;
 	let b1;
-	let t13_value = Math.round(/*selHeading*/ ctx[24]) + "";
+	let t13_value = Math.round(/*selHeading*/ ctx[20]) + "";
 	let t13;
 	let t14;
 	let i1;
-	let t15_value = /*cardinal*/ ctx[39](/*selHeading*/ ctx[24]) + "";
+	let t15_value = /*cardinal*/ ctx[32](/*selHeading*/ ctx[20]) + "";
 	let t15;
 	let t16;
 	let div6;
 	let small2;
 	let b2;
-	let t18_value = /*fx*/ ctx[36](/*r*/ ctx[85]?.dtf, 0) + "";
+	let t18_value = /*fx*/ ctx[29](/*r*/ ctx[70]?.dtf, 0) + "";
 	let t18;
 	let i2;
 	let t20;
@@ -2497,19 +2317,19 @@ function create_if_block_4(ctx) {
 	let small3;
 	let b3;
 
-	let t22_value = (/*r*/ ctx[85]?.rank === 1
+	let t22_value = (/*r*/ ctx[70]?.rank === 1
 	? '—'
-	: /*fx*/ ctx[36](/*r*/ ctx[85]?.dtl, 1)) + "";
+	: /*fx*/ ctx[29](/*r*/ ctx[70]?.dtl, 1)) + "";
 
 	let t22;
 	let i3;
-	let t23_value = (/*r*/ ctx[85]?.rank === 1 ? 'en tête' : 'mn') + "";
+	let t23_value = (/*r*/ ctx[70]?.rank === 1 ? 'en tête' : 'mn') + "";
 	let t23;
 	let t24;
 	let div8;
 	let small4;
 	let b4;
-	let t26_value = /*fx*/ ctx[36](/*selD24*/ ctx[22], 0) + "";
+	let t26_value = /*fx*/ ctx[29](/*selD24*/ ctx[18], 0) + "";
 	let t26;
 	let i4;
 	let t28;
@@ -2519,7 +2339,7 @@ function create_if_block_4(ctx) {
 	let div10;
 	let t31;
 	let span1;
-	let t32_value = /*fx*/ ctx[36](/*maxOf*/ ctx[37](/*selSpeeds*/ ctx[23])) + "";
+	let t32_value = /*fx*/ ctx[29](/*maxOf*/ ctx[30](/*selSpeeds*/ ctx[19])) + "";
 	let t32;
 	let t33;
 	let t34;
@@ -2534,43 +2354,42 @@ function create_if_block_4(ctx) {
 	let button1;
 	let t40;
 	let button2;
-	let t41_value = (/*favorites*/ ctx[5].has(/*sel*/ ctx[14].id) ? '★' : '☆') + "";
+	let t41_value = (/*favorites*/ ctx[5].has(/*sel*/ ctx[12].id) ? '★' : '☆') + "";
 	let t41;
 	let t42;
 	let button3;
 	let current;
 	let mounted;
 	let dispose;
-	let if_block0 = /*sel*/ ctx[14].nat && create_if_block_9(ctx);
+	let if_block0 = /*sel*/ ctx[12].nat && create_if_block_9(ctx);
 
-	function select_block_type_2(ctx, dirty) {
-		if (/*r*/ ctx[85]?.rank) return create_if_block_8;
+	function select_block_type_1(ctx, dirty) {
+		if (/*r*/ ctx[70]?.rank) return create_if_block_8;
 		return create_else_block_3;
 	}
 
-	let current_block_type = select_block_type_2(ctx);
+	let current_block_type = select_block_type_1(ctx);
 	let if_block1 = current_block_type(ctx);
 
-	function select_block_type_3(ctx, dirty) {
-		if (/*isLive*/ ctx[15] && /*st*/ ctx[95]) return create_if_block_7;
+	function select_block_type_2(ctx, dirty) {
+		if (/*st*/ ctx[80]) return create_if_block_7;
 		return create_else_block_2;
 	}
 
-	let current_block_type_1 = select_block_type_3(ctx);
+	let current_block_type_1 = select_block_type_2(ctx);
 	let if_block2 = current_block_type_1(ctx);
-	let if_block3 = /*isLive*/ ctx[15] && /*st*/ ctx[95] && create_if_block_6(ctx);
+	let if_block3 = /*st*/ ctx[80] && create_if_block_6(ctx);
 
 	sparkline = new Sparkline({
 			props: {
-				data: /*selSpeeds*/ ctx[23],
-				color: /*sel*/ ctx[14].color,
+				data: /*selSpeeds*/ ctx[19],
+				color: /*sel*/ ctx[12].color,
 				tMin: RACE_START,
-				tMax: /*tNow*/ ctx[12],
-				cursor: /*isLive*/ ctx[15] ? null : /*tView*/ ctx[13]
+				tMax: /*tNow*/ ctx[11]
 			}
 		});
 
-	let if_block4 = /*sel*/ ctx[14].ranks.length > 1 && create_if_block_5(ctx);
+	let if_block4 = /*sel*/ ctx[12].ranks.length > 1 && create_if_block_5(ctx);
 
 	return {
 		c() {
@@ -2660,46 +2479,46 @@ function create_if_block_4(ctx) {
 			t42 = space();
 			button3 = element("button");
 			button3.textContent = "✕";
-			attr(span0, "class", "rr-pill svelte-9yg79b");
-			set_style(span0, "--c", classColor(/*sel*/ ctx[14].className));
-			attr(h2, "class", "svelte-9yg79b");
-			attr(div0, "class", "rr-skipper svelte-9yg79b");
+			attr(span0, "class", "rr-pill svelte-xk6txw");
+			set_style(span0, "--c", classColor(/*sel*/ ctx[12].className));
+			attr(h2, "class", "svelte-xk6txw");
+			attr(div0, "class", "rr-skipper svelte-xk6txw");
 			attr(div1, "class", "rr-card-id");
-			attr(div2, "class", "rr-rank svelte-9yg79b");
-			attr(div3, "class", "rr-card-top svelte-9yg79b");
-			attr(small0, "class", "svelte-9yg79b");
-			attr(b0, "class", "svelte-9yg79b");
-			attr(i0, "class", "svelte-9yg79b");
-			attr(div4, "class", "svelte-9yg79b");
-			attr(small1, "class", "svelte-9yg79b");
-			attr(b1, "class", "svelte-9yg79b");
-			attr(i1, "class", "svelte-9yg79b");
-			attr(div5, "class", "svelte-9yg79b");
-			attr(small2, "class", "svelte-9yg79b");
-			attr(b2, "class", "svelte-9yg79b");
-			attr(i2, "class", "svelte-9yg79b");
-			attr(div6, "class", "svelte-9yg79b");
-			attr(small3, "class", "svelte-9yg79b");
-			attr(b3, "class", "svelte-9yg79b");
-			attr(i3, "class", "svelte-9yg79b");
-			attr(div7, "class", "svelte-9yg79b");
-			attr(small4, "class", "svelte-9yg79b");
-			attr(b4, "class", "svelte-9yg79b");
-			attr(i4, "class", "svelte-9yg79b");
-			attr(div8, "class", "svelte-9yg79b");
-			attr(div9, "class", "rr-stats svelte-9yg79b");
-			attr(span1, "class", "svelte-9yg79b");
-			attr(div10, "class", "rr-chart-h svelte-9yg79b");
-			attr(div11, "class", "rr-chart svelte-9yg79b");
-			attr(button0, "class", "rr-btn svelte-9yg79b");
+			attr(div2, "class", "rr-rank svelte-xk6txw");
+			attr(div3, "class", "rr-card-top svelte-xk6txw");
+			attr(small0, "class", "svelte-xk6txw");
+			attr(b0, "class", "svelte-xk6txw");
+			attr(i0, "class", "svelte-xk6txw");
+			attr(div4, "class", "svelte-xk6txw");
+			attr(small1, "class", "svelte-xk6txw");
+			attr(b1, "class", "svelte-xk6txw");
+			attr(i1, "class", "svelte-xk6txw");
+			attr(div5, "class", "svelte-xk6txw");
+			attr(small2, "class", "svelte-xk6txw");
+			attr(b2, "class", "svelte-xk6txw");
+			attr(i2, "class", "svelte-xk6txw");
+			attr(div6, "class", "svelte-xk6txw");
+			attr(small3, "class", "svelte-xk6txw");
+			attr(b3, "class", "svelte-xk6txw");
+			attr(i3, "class", "svelte-xk6txw");
+			attr(div7, "class", "svelte-xk6txw");
+			attr(small4, "class", "svelte-xk6txw");
+			attr(b4, "class", "svelte-xk6txw");
+			attr(i4, "class", "svelte-xk6txw");
+			attr(div8, "class", "svelte-xk6txw");
+			attr(div9, "class", "rr-stats svelte-xk6txw");
+			attr(span1, "class", "svelte-xk6txw");
+			attr(div10, "class", "rr-chart-h svelte-xk6txw");
+			attr(div11, "class", "rr-chart svelte-xk6txw");
+			attr(button0, "class", "rr-btn svelte-xk6txw");
 			toggle_class(button0, "on", /*follow*/ ctx[4]);
-			attr(button1, "class", "rr-btn svelte-9yg79b");
-			attr(button2, "class", "rr-btn svelte-9yg79b");
-			toggle_class(button2, "on", /*favorites*/ ctx[5].has(/*sel*/ ctx[14].id));
-			attr(button3, "class", "rr-btn svelte-9yg79b");
-			attr(div12, "class", "rr-card-actions svelte-9yg79b");
-			attr(article, "class", "rr-card svelte-9yg79b");
-			set_style(article, "--c", /*sel*/ ctx[14].color);
+			attr(button1, "class", "rr-btn svelte-xk6txw");
+			attr(button2, "class", "rr-btn svelte-xk6txw");
+			toggle_class(button2, "on", /*favorites*/ ctx[5].has(/*sel*/ ctx[12].id));
+			attr(button3, "class", "rr-btn svelte-xk6txw");
+			attr(div12, "class", "rr-card-actions svelte-xk6txw");
+			attr(article, "class", "rr-card svelte-xk6txw");
+			set_style(article, "--c", /*sel*/ ctx[12].color);
 		},
 		m(target, anchor) {
 			insert(target, article, anchor);
@@ -2782,26 +2601,26 @@ function create_if_block_4(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*click_handler_1*/ ctx[52]),
-					listen(button1, "click", /*click_handler_2*/ ctx[53]),
-					listen(button2, "click", /*click_handler_3*/ ctx[54]),
-					listen(button3, "click", /*click_handler_4*/ ctx[55])
+					listen(button0, "click", /*click_handler_1*/ ctx[44]),
+					listen(button1, "click", /*click_handler_2*/ ctx[45]),
+					listen(button2, "click", /*click_handler_3*/ ctx[46]),
+					listen(button3, "click", /*click_handler_4*/ ctx[47])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if ((!current || dirty[0] & /*sel*/ 16384) && t0_value !== (t0_value = /*sel*/ ctx[14].className + "")) set_data(t0, t0_value);
+			if ((!current || dirty[0] & /*sel*/ 4096) && t0_value !== (t0_value = /*sel*/ ctx[12].className + "")) set_data(t0, t0_value);
 
-			if (!current || dirty[0] & /*sel*/ 16384) {
-				set_style(span0, "--c", classColor(/*sel*/ ctx[14].className));
+			if (!current || dirty[0] & /*sel*/ 4096) {
+				set_style(span0, "--c", classColor(/*sel*/ ctx[12].className));
 			}
 
-			if ((!current || dirty[0] & /*sel*/ 16384) && t2_value !== (t2_value = /*sel*/ ctx[14].name + "")) set_data(t2, t2_value);
-			if ((!current || dirty[0] & /*sel*/ 16384) && t4_value !== (t4_value = (/*sel*/ ctx[14].skipper || '—') + "")) set_data(t4, t4_value);
+			if ((!current || dirty[0] & /*sel*/ 4096) && t2_value !== (t2_value = /*sel*/ ctx[12].name + "")) set_data(t2, t2_value);
+			if ((!current || dirty[0] & /*sel*/ 4096) && t4_value !== (t4_value = (/*sel*/ ctx[12].skipper || '—') + "")) set_data(t4, t4_value);
 
-			if (/*sel*/ ctx[14].nat) {
+			if (/*sel*/ ctx[12].nat) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
@@ -2814,7 +2633,7 @@ function create_if_block_4(ctx) {
 				if_block0 = null;
 			}
 
-			if (current_block_type === (current_block_type = select_block_type_2(ctx)) && if_block1) {
+			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block1) {
 				if_block1.p(ctx, dirty);
 			} else {
 				if_block1.d(1);
@@ -2826,19 +2645,19 @@ function create_if_block_4(ctx) {
 				}
 			}
 
-			if ((!current || dirty[0] & /*selSpeed*/ 33554432) && t9_value !== (t9_value = /*fx*/ ctx[36](/*selSpeed*/ ctx[25]) + "")) set_data(t9, t9_value);
-			if ((!current || dirty[0] & /*selHeading*/ 16777216) && t13_value !== (t13_value = Math.round(/*selHeading*/ ctx[24]) + "")) set_data(t13, t13_value);
-			if ((!current || dirty[0] & /*selHeading*/ 16777216) && t15_value !== (t15_value = /*cardinal*/ ctx[39](/*selHeading*/ ctx[24]) + "")) set_data(t15, t15_value);
-			if ((!current || dirty[0] & /*ranking, sel*/ 18432) && t18_value !== (t18_value = /*fx*/ ctx[36](/*r*/ ctx[85]?.dtf, 0) + "")) set_data(t18, t18_value);
+			if ((!current || dirty[0] & /*selSpeed*/ 2097152) && t9_value !== (t9_value = /*fx*/ ctx[29](/*selSpeed*/ ctx[21]) + "")) set_data(t9, t9_value);
+			if ((!current || dirty[0] & /*selHeading*/ 1048576) && t13_value !== (t13_value = Math.round(/*selHeading*/ ctx[20]) + "")) set_data(t13, t13_value);
+			if ((!current || dirty[0] & /*selHeading*/ 1048576) && t15_value !== (t15_value = /*cardinal*/ ctx[32](/*selHeading*/ ctx[20]) + "")) set_data(t15, t15_value);
+			if ((!current || dirty[0] & /*ranking, sel*/ 5120) && t18_value !== (t18_value = /*fx*/ ctx[29](/*r*/ ctx[70]?.dtf, 0) + "")) set_data(t18, t18_value);
 
-			if ((!current || dirty[0] & /*ranking, sel*/ 18432) && t22_value !== (t22_value = (/*r*/ ctx[85]?.rank === 1
+			if ((!current || dirty[0] & /*ranking, sel*/ 5120) && t22_value !== (t22_value = (/*r*/ ctx[70]?.rank === 1
 			? '—'
-			: /*fx*/ ctx[36](/*r*/ ctx[85]?.dtl, 1)) + "")) set_data(t22, t22_value);
+			: /*fx*/ ctx[29](/*r*/ ctx[70]?.dtl, 1)) + "")) set_data(t22, t22_value);
 
-			if ((!current || dirty[0] & /*ranking, sel*/ 18432) && t23_value !== (t23_value = (/*r*/ ctx[85]?.rank === 1 ? 'en tête' : 'mn') + "")) set_data(t23, t23_value);
-			if ((!current || dirty[0] & /*selD24*/ 4194304) && t26_value !== (t26_value = /*fx*/ ctx[36](/*selD24*/ ctx[22], 0) + "")) set_data(t26, t26_value);
+			if ((!current || dirty[0] & /*ranking, sel*/ 5120) && t23_value !== (t23_value = (/*r*/ ctx[70]?.rank === 1 ? 'en tête' : 'mn') + "")) set_data(t23, t23_value);
+			if ((!current || dirty[0] & /*selD24*/ 262144) && t26_value !== (t26_value = /*fx*/ ctx[29](/*selD24*/ ctx[18], 0) + "")) set_data(t26, t26_value);
 
-			if (current_block_type_1 === (current_block_type_1 = select_block_type_3(ctx)) && if_block2) {
+			if (current_block_type_1 === (current_block_type_1 = select_block_type_2(ctx)) && if_block2) {
 				if_block2.p(ctx, dirty);
 			} else {
 				if_block2.d(1);
@@ -2850,7 +2669,7 @@ function create_if_block_4(ctx) {
 				}
 			}
 
-			if (/*isLive*/ ctx[15] && /*st*/ ctx[95]) {
+			if (/*st*/ ctx[80]) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
 				} else {
@@ -2863,19 +2682,18 @@ function create_if_block_4(ctx) {
 				if_block3 = null;
 			}
 
-			if ((!current || dirty[0] & /*selSpeeds*/ 8388608) && t32_value !== (t32_value = /*fx*/ ctx[36](/*maxOf*/ ctx[37](/*selSpeeds*/ ctx[23])) + "")) set_data(t32, t32_value);
+			if ((!current || dirty[0] & /*selSpeeds*/ 524288) && t32_value !== (t32_value = /*fx*/ ctx[29](/*maxOf*/ ctx[30](/*selSpeeds*/ ctx[19])) + "")) set_data(t32, t32_value);
 			const sparkline_changes = {};
-			if (dirty[0] & /*selSpeeds*/ 8388608) sparkline_changes.data = /*selSpeeds*/ ctx[23];
-			if (dirty[0] & /*sel*/ 16384) sparkline_changes.color = /*sel*/ ctx[14].color;
-			if (dirty[0] & /*tNow*/ 4096) sparkline_changes.tMax = /*tNow*/ ctx[12];
-			if (dirty[0] & /*isLive, tView*/ 40960) sparkline_changes.cursor = /*isLive*/ ctx[15] ? null : /*tView*/ ctx[13];
+			if (dirty[0] & /*selSpeeds*/ 524288) sparkline_changes.data = /*selSpeeds*/ ctx[19];
+			if (dirty[0] & /*sel*/ 4096) sparkline_changes.color = /*sel*/ ctx[12].color;
+			if (dirty[0] & /*tNow*/ 2048) sparkline_changes.tMax = /*tNow*/ ctx[11];
 			sparkline.$set(sparkline_changes);
 
-			if (/*sel*/ ctx[14].ranks.length > 1) {
+			if (/*sel*/ ctx[12].ranks.length > 1) {
 				if (if_block4) {
 					if_block4.p(ctx, dirty);
 
-					if (dirty[0] & /*sel*/ 16384) {
+					if (dirty[0] & /*sel*/ 4096) {
 						transition_in(if_block4, 1);
 					}
 				} else {
@@ -2900,14 +2718,14 @@ function create_if_block_4(ctx) {
 				toggle_class(button0, "on", /*follow*/ ctx[4]);
 			}
 
-			if ((!current || dirty[0] & /*favorites, sel*/ 16416) && t41_value !== (t41_value = (/*favorites*/ ctx[5].has(/*sel*/ ctx[14].id) ? '★' : '☆') + "")) set_data(t41, t41_value);
+			if ((!current || dirty[0] & /*favorites, sel*/ 4128) && t41_value !== (t41_value = (/*favorites*/ ctx[5].has(/*sel*/ ctx[12].id) ? '★' : '☆') + "")) set_data(t41, t41_value);
 
-			if (!current || dirty[0] & /*favorites, sel*/ 16416) {
-				toggle_class(button2, "on", /*favorites*/ ctx[5].has(/*sel*/ ctx[14].id));
+			if (!current || dirty[0] & /*favorites, sel*/ 4128) {
+				toggle_class(button2, "on", /*favorites*/ ctx[5].has(/*sel*/ ctx[12].id));
 			}
 
-			if (!current || dirty[0] & /*sel*/ 16384) {
-				set_style(article, "--c", /*sel*/ ctx[14].color);
+			if (!current || dirty[0] & /*sel*/ 4096) {
+				set_style(article, "--c", /*sel*/ ctx[12].color);
 			}
 		},
 		i(local) {
@@ -2938,24 +2756,24 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (46:69) {#if sel.nat}
+// (42:69) {#if sel.nat}
 function create_if_block_9(ctx) {
 	let em;
-	let t_value = /*sel*/ ctx[14].nat + "";
+	let t_value = /*sel*/ ctx[12].nat + "";
 	let t;
 
 	return {
 		c() {
 			em = element("em");
 			t = text(t_value);
-			attr(em, "class", "svelte-9yg79b");
+			attr(em, "class", "svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, em, anchor);
 			append(em, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*sel*/ 16384 && t_value !== (t_value = /*sel*/ ctx[14].nat + "")) set_data(t, t_value);
+			if (dirty[0] & /*sel*/ 4096 && t_value !== (t_value = /*sel*/ ctx[12].nat + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -2965,7 +2783,7 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (49:95) {:else}
+// (45:95) {:else}
 function create_else_block_3(ctx) {
 	let b_1;
 
@@ -2973,7 +2791,7 @@ function create_else_block_3(ctx) {
 		c() {
 			b_1 = element("b");
 			b_1.textContent = "–";
-			attr(b_1, "class", "svelte-9yg79b");
+			attr(b_1, "class", "svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, b_1, anchor);
@@ -2987,14 +2805,14 @@ function create_else_block_3(ctx) {
 	};
 }
 
-// (49:24) {#if r?.rank}
+// (45:24) {#if r?.rank}
 function create_if_block_8(ctx) {
 	let b_1;
-	let t0_value = /*r*/ ctx[85].rank + "";
+	let t0_value = /*r*/ ctx[70].rank + "";
 	let t0;
 	let small;
 	let t1;
-	let t2_value = /*classCount*/ ctx[38](/*sel*/ ctx[14].className) + "";
+	let t2_value = /*classCount*/ ctx[31](/*sel*/ ctx[12].className) + "";
 	let t2;
 
 	return {
@@ -3004,8 +2822,8 @@ function create_if_block_8(ctx) {
 			small = element("small");
 			t1 = text("/");
 			t2 = text(t2_value);
-			attr(b_1, "class", "svelte-9yg79b");
-			attr(small, "class", "svelte-9yg79b");
+			attr(b_1, "class", "svelte-xk6txw");
+			attr(small, "class", "svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, b_1, anchor);
@@ -3015,8 +2833,8 @@ function create_if_block_8(ctx) {
 			append(small, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*ranking, sel*/ 18432 && t0_value !== (t0_value = /*r*/ ctx[85].rank + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*sel*/ 16384 && t2_value !== (t2_value = /*classCount*/ ctx[38](/*sel*/ ctx[14].className) + "")) set_data(t2, t2_value);
+			if (dirty[0] & /*ranking, sel*/ 5120 && t0_value !== (t0_value = /*r*/ ctx[70].rank + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*sel*/ 4096 && t2_value !== (t2_value = /*classCount*/ ctx[31](/*sel*/ ctx[12].className) + "")) set_data(t2, t2_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -3027,12 +2845,12 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (61:20) {:else}
+// (57:20) {:else}
 function create_else_block_2(ctx) {
 	let div;
 	let small;
 	let b_1;
-	let t1_value = /*fx*/ ctx[36](/*selD24*/ ctx[22] / 24) + "";
+	let t1_value = /*fx*/ ctx[29](/*selD24*/ ctx[18] / 24) + "";
 	let t1;
 	let i;
 
@@ -3045,10 +2863,10 @@ function create_else_block_2(ctx) {
 			t1 = text(t1_value);
 			i = element("i");
 			i.textContent = "nds";
-			attr(small, "class", "svelte-9yg79b");
-			attr(b_1, "class", "svelte-9yg79b");
-			attr(i, "class", "svelte-9yg79b");
-			attr(div, "class", "svelte-9yg79b");
+			attr(small, "class", "svelte-xk6txw");
+			attr(b_1, "class", "svelte-xk6txw");
+			attr(i, "class", "svelte-xk6txw");
+			attr(div, "class", "svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -3058,7 +2876,7 @@ function create_else_block_2(ctx) {
 			append(div, i);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*selD24*/ 4194304 && t1_value !== (t1_value = /*fx*/ ctx[36](/*selD24*/ ctx[22] / 24) + "")) set_data(t1, t1_value);
+			if (dirty[0] & /*selD24*/ 262144 && t1_value !== (t1_value = /*fx*/ ctx[29](/*selD24*/ ctx[18] / 24) + "")) set_data(t1, t1_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -3068,12 +2886,12 @@ function create_else_block_2(ctx) {
 	};
 }
 
-// (59:20) {#if isLive && st}
+// (55:20) {#if st}
 function create_if_block_7(ctx) {
 	let div;
 	let small;
 	let b_1;
-	let t1_value = /*fx*/ ctx[36](/*st*/ ctx[95].vmg) + "";
+	let t1_value = /*fx*/ ctx[29](/*st*/ ctx[80].vmg) + "";
 	let t1;
 	let i;
 
@@ -3086,10 +2904,10 @@ function create_if_block_7(ctx) {
 			t1 = text(t1_value);
 			i = element("i");
 			i.textContent = "nds";
-			attr(small, "class", "svelte-9yg79b");
-			attr(b_1, "class", "svelte-9yg79b");
-			attr(i, "class", "svelte-9yg79b");
-			attr(div, "class", "svelte-9yg79b");
+			attr(small, "class", "svelte-xk6txw");
+			attr(b_1, "class", "svelte-xk6txw");
+			attr(i, "class", "svelte-xk6txw");
+			attr(div, "class", "svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -3099,7 +2917,7 @@ function create_if_block_7(ctx) {
 			append(div, i);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*sel*/ 16384 && t1_value !== (t1_value = /*fx*/ ctx[36](/*st*/ ctx[95].vmg) + "")) set_data(t1, t1_value);
+			if (dirty[0] & /*sel*/ 4096 && t1_value !== (t1_value = /*fx*/ ctx[29](/*st*/ ctx[80].vmg) + "")) set_data(t1, t1_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -3109,18 +2927,18 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (66:16) {#if isLive && st}
+// (62:16) {#if st}
 function create_if_block_6(ctx) {
 	let div4;
 	let div0;
 	let span0;
 	let t0;
 	let t1;
-	let t2_value = /*fx*/ ctx[36](/*st*/ ctx[95].windSpeed, 0) + "";
+	let t2_value = /*fx*/ ctx[29](/*st*/ ctx[80].windSpeed, 0) + "";
 	let t2;
 	let small0;
 	let t3;
-	let t4_value = /*fx*/ ctx[36](/*st*/ ctx[95].windGust, 0) + "";
+	let t4_value = /*fx*/ ctx[29](/*st*/ ctx[80].windGust, 0) + "";
 	let t4;
 	let t5;
 	let t6;
@@ -3128,24 +2946,24 @@ function create_if_block_6(ctx) {
 	let span1;
 	let t7;
 	let t8;
-	let t9_value = /*fx*/ ctx[36](/*st*/ ctx[95].waveHeight) + "";
+	let t9_value = /*fx*/ ctx[29](/*st*/ ctx[80].waveHeight) + "";
 	let t9;
 	let small1;
 	let t11;
 	let div2;
 	let t12;
-	let t13_value = /*fx*/ ctx[36](/*st*/ ctx[95].tempWater, 0) + "";
+	let t13_value = /*fx*/ ctx[29](/*st*/ ctx[80].tempWater, 0) + "";
 	let t13;
 	let t14;
 	let small2;
 	let t15;
-	let t16_value = /*fx*/ ctx[36](/*st*/ ctx[95].tempAir, 0) + "";
+	let t16_value = /*fx*/ ctx[29](/*st*/ ctx[80].tempAir, 0) + "";
 	let t16;
 	let t17;
 	let t18;
 	let div3;
 	let t19;
-	let t20_value = /*fx*/ ctx[36](/*st*/ ctx[95].vitmax4) + "";
+	let t20_value = /*fx*/ ctx[29](/*st*/ ctx[80].vitmax4) + "";
 	let t20;
 	let small3;
 
@@ -3184,19 +3002,19 @@ function create_if_block_6(ctx) {
 			t20 = text(t20_value);
 			small3 = element("small");
 			small3.textContent = "nds max 4h";
-			attr(span0, "class", "rr-arrow svelte-9yg79b");
-			set_style(span0, "transform", "rotate(" + (/*st*/ ctx[95].windDir + 180) + "deg)");
-			attr(small0, "class", "svelte-9yg79b");
+			attr(span0, "class", "rr-arrow svelte-xk6txw");
+			set_style(span0, "transform", "rotate(" + (/*st*/ ctx[80].windDir + 180) + "deg)");
+			attr(small0, "class", "svelte-xk6txw");
 			attr(div0, "title", "Vent");
-			attr(span1, "class", "rr-arrow svelte-9yg79b");
-			set_style(span1, "transform", "rotate(" + (/*st*/ ctx[95].waveDir + 180) + "deg)");
-			attr(small1, "class", "svelte-9yg79b");
+			attr(span1, "class", "rr-arrow svelte-xk6txw");
+			set_style(span1, "transform", "rotate(" + (/*st*/ ctx[80].waveDir + 180) + "deg)");
+			attr(small1, "class", "svelte-xk6txw");
 			attr(div1, "title", "Vagues");
-			attr(small2, "class", "svelte-9yg79b");
+			attr(small2, "class", "svelte-xk6txw");
 			attr(div2, "title", "Eau / air");
-			attr(small3, "class", "svelte-9yg79b");
+			attr(small3, "class", "svelte-xk6txw");
 			attr(div3, "title", "Vitesse max 4 h");
-			attr(div4, "class", "rr-wx svelte-9yg79b");
+			attr(div4, "class", "rr-wx svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div4, anchor);
@@ -3232,21 +3050,21 @@ function create_if_block_6(ctx) {
 			append(div3, small3);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*sel*/ 16384) {
-				set_style(span0, "transform", "rotate(" + (/*st*/ ctx[95].windDir + 180) + "deg)");
+			if (dirty[0] & /*sel*/ 4096) {
+				set_style(span0, "transform", "rotate(" + (/*st*/ ctx[80].windDir + 180) + "deg)");
 			}
 
-			if (dirty[0] & /*sel*/ 16384 && t2_value !== (t2_value = /*fx*/ ctx[36](/*st*/ ctx[95].windSpeed, 0) + "")) set_data(t2, t2_value);
-			if (dirty[0] & /*sel*/ 16384 && t4_value !== (t4_value = /*fx*/ ctx[36](/*st*/ ctx[95].windGust, 0) + "")) set_data(t4, t4_value);
+			if (dirty[0] & /*sel*/ 4096 && t2_value !== (t2_value = /*fx*/ ctx[29](/*st*/ ctx[80].windSpeed, 0) + "")) set_data(t2, t2_value);
+			if (dirty[0] & /*sel*/ 4096 && t4_value !== (t4_value = /*fx*/ ctx[29](/*st*/ ctx[80].windGust, 0) + "")) set_data(t4, t4_value);
 
-			if (dirty[0] & /*sel*/ 16384) {
-				set_style(span1, "transform", "rotate(" + (/*st*/ ctx[95].waveDir + 180) + "deg)");
+			if (dirty[0] & /*sel*/ 4096) {
+				set_style(span1, "transform", "rotate(" + (/*st*/ ctx[80].waveDir + 180) + "deg)");
 			}
 
-			if (dirty[0] & /*sel*/ 16384 && t9_value !== (t9_value = /*fx*/ ctx[36](/*st*/ ctx[95].waveHeight) + "")) set_data(t9, t9_value);
-			if (dirty[0] & /*sel*/ 16384 && t13_value !== (t13_value = /*fx*/ ctx[36](/*st*/ ctx[95].tempWater, 0) + "")) set_data(t13, t13_value);
-			if (dirty[0] & /*sel*/ 16384 && t16_value !== (t16_value = /*fx*/ ctx[36](/*st*/ ctx[95].tempAir, 0) + "")) set_data(t16, t16_value);
-			if (dirty[0] & /*sel*/ 16384 && t20_value !== (t20_value = /*fx*/ ctx[36](/*st*/ ctx[95].vitmax4) + "")) set_data(t20, t20_value);
+			if (dirty[0] & /*sel*/ 4096 && t9_value !== (t9_value = /*fx*/ ctx[29](/*st*/ ctx[80].waveHeight) + "")) set_data(t9, t9_value);
+			if (dirty[0] & /*sel*/ 4096 && t13_value !== (t13_value = /*fx*/ ctx[29](/*st*/ ctx[80].tempWater, 0) + "")) set_data(t13, t13_value);
+			if (dirty[0] & /*sel*/ 4096 && t16_value !== (t16_value = /*fx*/ ctx[29](/*st*/ ctx[80].tempAir, 0) + "")) set_data(t16, t16_value);
+			if (dirty[0] & /*sel*/ 4096 && t20_value !== (t20_value = /*fx*/ ctx[29](/*st*/ ctx[80].vitmax4) + "")) set_data(t20, t20_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -3256,14 +3074,14 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (85:16) {#if sel.ranks.length > 1}
+// (81:16) {#if sel.ranks.length > 1}
 function create_if_block_5(ctx) {
 	let div1;
 	let div0;
 	let t0;
 	let span;
 	let t1;
-	let t2_value = Math.min(.../*sel*/ ctx[14].ranks.map(func)) + "";
+	let t2_value = Math.min(.../*sel*/ ctx[12].ranks.map(func)) + "";
 	let t2;
 	let t3;
 	let t4;
@@ -3272,12 +3090,11 @@ function create_if_block_5(ctx) {
 
 	sparkline = new Sparkline({
 			props: {
-				data: /*sel*/ ctx[14].ranks.map(func_1),
-				color: classColor(/*sel*/ ctx[14].className),
+				data: /*sel*/ ctx[12].ranks.map(func_1),
+				color: classColor(/*sel*/ ctx[12].className),
 				invert: true,
 				tMin: RACE_START,
-				tMax: /*tNow*/ ctx[12],
-				cursor: /*isLive*/ ctx[15] ? null : /*tView*/ ctx[13]
+				tMax: /*tNow*/ ctx[11]
 			}
 		});
 
@@ -3292,9 +3109,9 @@ function create_if_block_5(ctx) {
 			t3 = text("ᵉ");
 			t4 = space();
 			create_component(sparkline.$$.fragment);
-			attr(span, "class", "svelte-9yg79b");
-			attr(div0, "class", "rr-chart-h svelte-9yg79b");
-			attr(div1, "class", "rr-chart svelte-9yg79b");
+			attr(span, "class", "svelte-xk6txw");
+			attr(div0, "class", "rr-chart-h svelte-xk6txw");
+			attr(div1, "class", "rr-chart svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -3309,12 +3126,11 @@ function create_if_block_5(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if ((!current || dirty[0] & /*sel*/ 16384) && t2_value !== (t2_value = Math.min(.../*sel*/ ctx[14].ranks.map(func)) + "")) set_data(t2, t2_value);
+			if ((!current || dirty[0] & /*sel*/ 4096) && t2_value !== (t2_value = Math.min(.../*sel*/ ctx[12].ranks.map(func)) + "")) set_data(t2, t2_value);
 			const sparkline_changes = {};
-			if (dirty[0] & /*sel*/ 16384) sparkline_changes.data = /*sel*/ ctx[14].ranks.map(func_1);
-			if (dirty[0] & /*sel*/ 16384) sparkline_changes.color = classColor(/*sel*/ ctx[14].className);
-			if (dirty[0] & /*tNow*/ 4096) sparkline_changes.tMax = /*tNow*/ ctx[12];
-			if (dirty[0] & /*isLive, tView*/ 40960) sparkline_changes.cursor = /*isLive*/ ctx[15] ? null : /*tView*/ ctx[13];
+			if (dirty[0] & /*sel*/ 4096) sparkline_changes.data = /*sel*/ ctx[12].ranks.map(func_1);
+			if (dirty[0] & /*sel*/ 4096) sparkline_changes.color = classColor(/*sel*/ ctx[12].className);
+			if (dirty[0] & /*tNow*/ 2048) sparkline_changes.tMax = /*tNow*/ ctx[11];
 			sparkline.$set(sparkline_changes);
 		},
 		i(local) {
@@ -3336,20 +3152,20 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (108:12) {#each presentClasses as c}
-function create_each_block_3(ctx) {
+// (104:12) {#each presentClasses as c}
+function create_each_block_2(ctx) {
 	let button;
 	let i;
-	let t0_value = /*c*/ ctx[92].name + "";
+	let t0_value = /*c*/ ctx[77].name + "";
 	let t0;
 	let small;
-	let t1_value = /*classCount*/ ctx[38](/*c*/ ctx[92].name) + "";
+	let t1_value = /*classCount*/ ctx[31](/*c*/ ctx[77].name) + "";
 	let t1;
 	let mounted;
 	let dispose;
 
 	function click_handler_6() {
-		return /*click_handler_6*/ ctx[57](/*c*/ ctx[92]);
+		return /*click_handler_6*/ ctx[49](/*c*/ ctx[77]);
 	}
 
 	return {
@@ -3359,11 +3175,11 @@ function create_each_block_3(ctx) {
 			t0 = text(t0_value);
 			small = element("small");
 			t1 = text(t1_value);
-			attr(i, "class", "svelte-9yg79b");
-			attr(small, "class", "svelte-9yg79b");
-			set_style(button, "--c", /*c*/ ctx[92].color);
-			attr(button, "class", "svelte-9yg79b");
-			toggle_class(button, "on", /*tab*/ ctx[1] === /*c*/ ctx[92].name);
+			attr(i, "class", "svelte-xk6txw");
+			attr(small, "class", "svelte-xk6txw");
+			set_style(button, "--c", /*c*/ ctx[77].color);
+			attr(button, "class", "svelte-xk6txw");
+			toggle_class(button, "on", /*tab*/ ctx[1] === /*c*/ ctx[77].name);
 		},
 		m(target, anchor) {
 			insert(target, button, anchor);
@@ -3379,15 +3195,15 @@ function create_each_block_3(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty[0] & /*presentClasses*/ 67108864 && t0_value !== (t0_value = /*c*/ ctx[92].name + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*presentClasses*/ 67108864 && t1_value !== (t1_value = /*classCount*/ ctx[38](/*c*/ ctx[92].name) + "")) set_data(t1, t1_value);
+			if (dirty[0] & /*presentClasses*/ 4194304 && t0_value !== (t0_value = /*c*/ ctx[77].name + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*presentClasses*/ 4194304 && t1_value !== (t1_value = /*classCount*/ ctx[31](/*c*/ ctx[77].name) + "")) set_data(t1, t1_value);
 
-			if (dirty[0] & /*presentClasses*/ 67108864) {
-				set_style(button, "--c", /*c*/ ctx[92].color);
+			if (dirty[0] & /*presentClasses*/ 4194304) {
+				set_style(button, "--c", /*c*/ ctx[77].color);
 			}
 
-			if (dirty[0] & /*tab, presentClasses*/ 67108866) {
-				toggle_class(button, "on", /*tab*/ ctx[1] === /*c*/ ctx[92].name);
+			if (dirty[0] & /*tab, presentClasses*/ 4194306) {
+				toggle_class(button, "on", /*tab*/ ctx[1] === /*c*/ ctx[77].name);
 			}
 		},
 		d(detaching) {
@@ -3401,7 +3217,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (122:8) {#if showSettings}
+// (118:8) {#if showSettings}
 function create_if_block_3(ctx) {
 	let div4;
 	let div0;
@@ -3432,11 +3248,11 @@ function create_if_block_3(ctx) {
 	let button6;
 	let mounted;
 	let dispose;
-	let each_value_2 = ensure_array_like([['all', 'Complètes'], ['48h', '48 h'], ['12h', '12 h'], ['none', 'Aucune']]);
+	let each_value_1 = ensure_array_like([['all', 'Complètes'], ['48h', '48 h'], ['12h', '12 h'], ['none', 'Aucune']]);
 	let each_blocks = [];
 
 	for (let i = 0; i < 4; i += 1) {
-		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 	}
 
 	return {
@@ -3484,29 +3300,29 @@ function create_if_block_3(ctx) {
 			t20 = space();
 			button6 = element("button");
 			button6.textContent = "Onglet actif";
-			attr(span0, "class", "svelte-9yg79b");
-			attr(div0, "class", "rr-seg svelte-9yg79b");
-			attr(span1, "class", "svelte-9yg79b");
-			attr(button0, "class", "svelte-9yg79b");
+			attr(span0, "class", "svelte-xk6txw");
+			attr(div0, "class", "rr-seg svelte-xk6txw");
+			attr(span1, "class", "svelte-xk6txw");
+			attr(button0, "class", "svelte-xk6txw");
 			toggle_class(button0, "on", /*colorBy*/ ctx[7] === 'boat');
-			attr(button1, "class", "svelte-9yg79b");
+			attr(button1, "class", "svelte-xk6txw");
 			toggle_class(button1, "on", /*colorBy*/ ctx[7] === 'class');
-			attr(div1, "class", "rr-seg svelte-9yg79b");
-			attr(span2, "class", "svelte-9yg79b");
-			attr(button2, "class", "svelte-9yg79b");
+			attr(div1, "class", "rr-seg svelte-xk6txw");
+			attr(span2, "class", "svelte-xk6txw");
+			attr(button2, "class", "svelte-xk6txw");
 			toggle_class(button2, "on", /*labels*/ ctx[8] === 'none');
-			attr(button3, "class", "svelte-9yg79b");
+			attr(button3, "class", "svelte-xk6txw");
 			toggle_class(button3, "on", /*labels*/ ctx[8] === 'leaders');
-			attr(button4, "class", "svelte-9yg79b");
+			attr(button4, "class", "svelte-xk6txw");
 			toggle_class(button4, "on", /*labels*/ ctx[8] === 'all');
-			attr(div2, "class", "rr-seg svelte-9yg79b");
-			attr(span3, "class", "svelte-9yg79b");
-			attr(button5, "class", "svelte-9yg79b");
+			attr(div2, "class", "rr-seg svelte-xk6txw");
+			attr(span3, "class", "svelte-xk6txw");
+			attr(button5, "class", "svelte-xk6txw");
 			toggle_class(button5, "on", /*mapScope*/ ctx[9] === 'all');
-			attr(button6, "class", "svelte-9yg79b");
+			attr(button6, "class", "svelte-xk6txw");
 			toggle_class(button6, "on", /*mapScope*/ ctx[9] === 'tab');
-			attr(div3, "class", "rr-seg svelte-9yg79b");
-			attr(div4, "class", "rr-settings svelte-9yg79b");
+			attr(div3, "class", "rr-seg svelte-xk6txw");
+			attr(div4, "class", "rr-settings svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div4, anchor);
@@ -3546,13 +3362,13 @@ function create_if_block_3(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button0, "click", /*click_handler_10*/ ctx[62]),
-					listen(button1, "click", /*click_handler_11*/ ctx[63]),
-					listen(button2, "click", /*click_handler_12*/ ctx[64]),
-					listen(button3, "click", /*click_handler_13*/ ctx[65]),
-					listen(button4, "click", /*click_handler_14*/ ctx[66]),
-					listen(button5, "click", /*click_handler_15*/ ctx[67]),
-					listen(button6, "click", /*click_handler_16*/ ctx[68])
+					listen(button0, "click", /*click_handler_10*/ ctx[54]),
+					listen(button1, "click", /*click_handler_11*/ ctx[55]),
+					listen(button2, "click", /*click_handler_12*/ ctx[56]),
+					listen(button3, "click", /*click_handler_13*/ ctx[57]),
+					listen(button4, "click", /*click_handler_14*/ ctx[58]),
+					listen(button5, "click", /*click_handler_15*/ ctx[59]),
+					listen(button6, "click", /*click_handler_16*/ ctx[60])
 				];
 
 				mounted = true;
@@ -3560,7 +3376,7 @@ function create_if_block_3(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty[0] & /*trackMode*/ 64) {
-				each_value_2 = ensure_array_like([
+				each_value_1 = ensure_array_like([
 					['all', 'Complètes'],
 					['48h', '48 h'],
 					['12h', '12 h'],
@@ -3570,12 +3386,12 @@ function create_if_block_3(ctx) {
 				let i;
 
 				for (i = 0; i < 4; i += 1) {
-					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+					const child_ctx = get_each_context_1(ctx, each_value_1, i);
 
 					if (each_blocks[i]) {
 						each_blocks[i].p(child_ctx, dirty);
 					} else {
-						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i] = create_each_block_1(child_ctx);
 						each_blocks[i].c();
 						each_blocks[i].m(div0, null);
 					}
@@ -3626,22 +3442,22 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (126:20) {#each [['all', 'Complètes'], ['48h', '48 h'], ['12h', '12 h'], ['none', 'Aucune']] as [v, l]}
-function create_each_block_2(ctx) {
+// (122:20) {#each [['all', 'Complètes'], ['48h', '48 h'], ['12h', '12 h'], ['none', 'Aucune']] as [v, l]}
+function create_each_block_1(ctx) {
 	let button;
 	let mounted;
 	let dispose;
 
 	function click_handler_9() {
-		return /*click_handler_9*/ ctx[61](/*v*/ ctx[88]);
+		return /*click_handler_9*/ ctx[53](/*v*/ ctx[73]);
 	}
 
 	return {
 		c() {
 			button = element("button");
-			button.textContent = `${/*l*/ ctx[89]}`;
-			attr(button, "class", "svelte-9yg79b");
-			toggle_class(button, "on", /*trackMode*/ ctx[6] === /*v*/ ctx[88]);
+			button.textContent = `${/*l*/ ctx[74]}`;
+			attr(button, "class", "svelte-xk6txw");
+			toggle_class(button, "on", /*trackMode*/ ctx[6] === /*v*/ ctx[73]);
 		},
 		m(target, anchor) {
 			insert(target, button, anchor);
@@ -3655,7 +3471,7 @@ function create_each_block_2(ctx) {
 			ctx = new_ctx;
 
 			if (dirty[0] & /*trackMode*/ 64) {
-				toggle_class(button, "on", /*trackMode*/ ctx[6] === /*v*/ ctx[88]);
+				toggle_class(button, "on", /*trackMode*/ ctx[6] === /*v*/ ctx[73]);
 			}
 		},
 		d(detaching) {
@@ -3669,7 +3485,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (168:12) {:else}
+// (164:12) {:else}
 function create_else_block_1(ctx) {
 	let li;
 
@@ -3677,7 +3493,7 @@ function create_else_block_1(ctx) {
 		c() {
 			li = element("li");
 			li.textContent = "Aucun bateau";
-			attr(li, "class", "rr-none svelte-9yg79b");
+			attr(li, "class", "rr-none svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, li, anchor);
@@ -3691,9 +3507,9 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (158:42) {#if tab === 'all' || tab === 'fav'}
+// (154:42) {#if tab === 'all' || tab === 'fav'}
 function create_if_block_2(ctx) {
-	let t_value = (/*b*/ ctx[84].skipper ? ' · ' : '') + /*b*/ ctx[84].className + "";
+	let t_value = (/*b*/ ctx[69].skipper ? ' · ' : '') + /*b*/ ctx[69].className + "";
 	let t;
 
 	return {
@@ -3704,7 +3520,7 @@ function create_if_block_2(ctx) {
 			insert(target, t, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*rows*/ 1048576 && t_value !== (t_value = (/*b*/ ctx[84].skipper ? ' · ' : '') + /*b*/ ctx[84].className + "")) set_data(t, t_value);
+			if (dirty[0] & /*rows*/ 65536 && t_value !== (t_value = (/*b*/ ctx[69].skipper ? ' · ' : '') + /*b*/ ctx[69].className + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) {
@@ -3714,42 +3530,42 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (151:12) {#each rows as b (b.id)}
-function create_each_block_1(key_1, ctx) {
+// (147:12) {#each rows as b (b.id)}
+function create_each_block(key_1, ctx) {
 	let li;
 	let span0;
-	let t0_value = (/*r*/ ctx[85]?.rank || /*statusLabel*/ ctx[40](/*b*/ ctx[84].state?.status)) + "";
+	let t0_value = (/*r*/ ctx[70]?.rank || /*statusLabel*/ ctx[33](/*b*/ ctx[69].state?.status)) + "";
 	let t0;
 	let t1;
 	let span1;
 	let t2;
 	let span2;
 	let b0;
-	let t3_value = /*b*/ ctx[84].name + "";
+	let t3_value = /*b*/ ctx[69].name + "";
 	let t3;
 	let t4;
 	let small0;
-	let t5_value = /*b*/ ctx[84].skipper + "";
+	let t5_value = /*b*/ ctx[69].skipper + "";
 	let t5;
 	let t6;
 	let span3;
 	let b1;
-	let t7_value = /*fx*/ ctx[36](/*r*/ ctx[85]?.speed) + "";
+	let t7_value = /*fx*/ ctx[29](/*r*/ ctx[70]?.speed) + "";
 	let t7;
 	let i;
 	let t9;
 	let small1;
 
-	let t10_value = (/*r*/ ctx[85]?.rank === 1
-	? `${/*fx*/ ctx[36](/*r*/ ctx[85].dtf, 0)} mn`
-	: (/*r*/ ctx[85]?.rank)
-		? `+${/*fx*/ ctx[36](/*r*/ ctx[85].dtl, 1)}`
+	let t10_value = (/*r*/ ctx[70]?.rank === 1
+	? `${/*fx*/ ctx[29](/*r*/ ctx[70].dtf, 0)} mn`
+	: (/*r*/ ctx[70]?.rank)
+		? `+${/*fx*/ ctx[29](/*r*/ ctx[70].dtl, 1)}`
 		: '') + "";
 
 	let t10;
 	let t11;
 	let button;
-	let t12_value = (/*favorites*/ ctx[5].has(/*b*/ ctx[84].id) ? '★' : '☆') + "";
+	let t12_value = (/*favorites*/ ctx[5].has(/*b*/ ctx[69].id) ? '★' : '☆') + "";
 	let t12;
 	let t13;
 	let mounted;
@@ -3757,11 +3573,11 @@ function create_each_block_1(key_1, ctx) {
 	let if_block = (/*tab*/ ctx[1] === 'all' || /*tab*/ ctx[1] === 'fav') && create_if_block_2(ctx);
 
 	function click_handler_17() {
-		return /*click_handler_17*/ ctx[69](/*b*/ ctx[84]);
+		return /*click_handler_17*/ ctx[61](/*b*/ ctx[69]);
 	}
 
 	function click_handler_18() {
-		return /*click_handler_18*/ ctx[70](/*b*/ ctx[84]);
+		return /*click_handler_18*/ ctx[62](/*b*/ ctx[69]);
 	}
 
 	return {
@@ -3794,21 +3610,21 @@ function create_each_block_1(key_1, ctx) {
 			button = element("button");
 			t12 = text(t12_value);
 			t13 = space();
-			attr(span0, "class", "rr-pos svelte-9yg79b");
-			attr(span1, "class", "rr-swatch svelte-9yg79b");
-			attr(b0, "class", "svelte-9yg79b");
-			attr(small0, "class", "svelte-9yg79b");
-			attr(span2, "class", "rr-who svelte-9yg79b");
-			attr(i, "class", "svelte-9yg79b");
-			attr(b1, "class", "svelte-9yg79b");
-			attr(small1, "class", "svelte-9yg79b");
-			attr(span3, "class", "rr-num svelte-9yg79b");
-			attr(button, "class", "rr-star svelte-9yg79b");
-			toggle_class(button, "on", /*favorites*/ ctx[5].has(/*b*/ ctx[84].id));
-			set_style(li, "--c", /*b*/ ctx[84].color);
-			attr(li, "class", "svelte-9yg79b");
-			toggle_class(li, "sel", /*b*/ ctx[84].id === /*selected*/ ctx[3]);
-			toggle_class(li, "out", !/*r*/ ctx[85]?.rank);
+			attr(span0, "class", "rr-pos svelte-xk6txw");
+			attr(span1, "class", "rr-swatch svelte-xk6txw");
+			attr(b0, "class", "svelte-xk6txw");
+			attr(small0, "class", "svelte-xk6txw");
+			attr(span2, "class", "rr-who svelte-xk6txw");
+			attr(i, "class", "svelte-xk6txw");
+			attr(b1, "class", "svelte-xk6txw");
+			attr(small1, "class", "svelte-xk6txw");
+			attr(span3, "class", "rr-num svelte-xk6txw");
+			attr(button, "class", "rr-star svelte-xk6txw");
+			toggle_class(button, "on", /*favorites*/ ctx[5].has(/*b*/ ctx[69].id));
+			set_style(li, "--c", /*b*/ ctx[69].color);
+			attr(li, "class", "svelte-xk6txw");
+			toggle_class(li, "sel", /*b*/ ctx[69].id === /*selected*/ ctx[3]);
+			toggle_class(li, "out", !/*r*/ ctx[70]?.rank);
 			this.first = li;
 		},
 		m(target, anchor) {
@@ -3849,9 +3665,9 @@ function create_each_block_1(key_1, ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty[0] & /*ranking, rows*/ 1050624 && t0_value !== (t0_value = (/*r*/ ctx[85]?.rank || /*statusLabel*/ ctx[40](/*b*/ ctx[84].state?.status)) + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*rows*/ 1048576 && t3_value !== (t3_value = /*b*/ ctx[84].name + "")) set_data(t3, t3_value);
-			if (dirty[0] & /*rows*/ 1048576 && t5_value !== (t5_value = /*b*/ ctx[84].skipper + "")) set_data(t5, t5_value);
+			if (dirty[0] & /*ranking, rows*/ 66560 && t0_value !== (t0_value = (/*r*/ ctx[70]?.rank || /*statusLabel*/ ctx[33](/*b*/ ctx[69].state?.status)) + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*rows*/ 65536 && t3_value !== (t3_value = /*b*/ ctx[69].name + "")) set_data(t3, t3_value);
+			if (dirty[0] & /*rows*/ 65536 && t5_value !== (t5_value = /*b*/ ctx[69].skipper + "")) set_data(t5, t5_value);
 
 			if (/*tab*/ ctx[1] === 'all' || /*tab*/ ctx[1] === 'fav') {
 				if (if_block) {
@@ -3866,30 +3682,30 @@ function create_each_block_1(key_1, ctx) {
 				if_block = null;
 			}
 
-			if (dirty[0] & /*ranking, rows*/ 1050624 && t7_value !== (t7_value = /*fx*/ ctx[36](/*r*/ ctx[85]?.speed) + "")) set_data(t7, t7_value);
+			if (dirty[0] & /*ranking, rows*/ 66560 && t7_value !== (t7_value = /*fx*/ ctx[29](/*r*/ ctx[70]?.speed) + "")) set_data(t7, t7_value);
 
-			if (dirty[0] & /*ranking, rows*/ 1050624 && t10_value !== (t10_value = (/*r*/ ctx[85]?.rank === 1
-			? `${/*fx*/ ctx[36](/*r*/ ctx[85].dtf, 0)} mn`
-			: (/*r*/ ctx[85]?.rank)
-				? `+${/*fx*/ ctx[36](/*r*/ ctx[85].dtl, 1)}`
+			if (dirty[0] & /*ranking, rows*/ 66560 && t10_value !== (t10_value = (/*r*/ ctx[70]?.rank === 1
+			? `${/*fx*/ ctx[29](/*r*/ ctx[70].dtf, 0)} mn`
+			: (/*r*/ ctx[70]?.rank)
+				? `+${/*fx*/ ctx[29](/*r*/ ctx[70].dtl, 1)}`
 				: '') + "")) set_data(t10, t10_value);
 
-			if (dirty[0] & /*favorites, rows*/ 1048608 && t12_value !== (t12_value = (/*favorites*/ ctx[5].has(/*b*/ ctx[84].id) ? '★' : '☆') + "")) set_data(t12, t12_value);
+			if (dirty[0] & /*favorites, rows*/ 65568 && t12_value !== (t12_value = (/*favorites*/ ctx[5].has(/*b*/ ctx[69].id) ? '★' : '☆') + "")) set_data(t12, t12_value);
 
-			if (dirty[0] & /*favorites, rows*/ 1048608) {
-				toggle_class(button, "on", /*favorites*/ ctx[5].has(/*b*/ ctx[84].id));
+			if (dirty[0] & /*favorites, rows*/ 65568) {
+				toggle_class(button, "on", /*favorites*/ ctx[5].has(/*b*/ ctx[69].id));
 			}
 
-			if (dirty[0] & /*rows*/ 1048576) {
-				set_style(li, "--c", /*b*/ ctx[84].color);
+			if (dirty[0] & /*rows*/ 65536) {
+				set_style(li, "--c", /*b*/ ctx[69].color);
 			}
 
-			if (dirty[0] & /*rows, selected*/ 1048584) {
-				toggle_class(li, "sel", /*b*/ ctx[84].id === /*selected*/ ctx[3]);
+			if (dirty[0] & /*rows, selected*/ 65544) {
+				toggle_class(li, "sel", /*b*/ ctx[69].id === /*selected*/ ctx[3]);
 			}
 
-			if (dirty[0] & /*ranking, rows*/ 1050624) {
-				toggle_class(li, "out", !/*r*/ ctx[85]?.rank);
+			if (dirty[0] & /*ranking, rows*/ 66560) {
+				toggle_class(li, "out", !/*r*/ ctx[70]?.rank);
 			}
 		},
 		d(detaching) {
@@ -3904,49 +3720,6 @@ function create_each_block_1(key_1, ctx) {
 	};
 }
 
-// (193:20) {#each [1, 3, 6, 12] as s}
-function create_each_block(ctx) {
-	let button;
-	let mounted;
-	let dispose;
-
-	function click_handler_19() {
-		return /*click_handler_19*/ ctx[72](/*s*/ ctx[81]);
-	}
-
-	return {
-		c() {
-			button = element("button");
-			button.textContent = `×${/*s*/ ctx[81]}h/s`;
-			attr(button, "class", "svelte-9yg79b");
-			toggle_class(button, "on", /*playSpeed*/ ctx[19] === /*s*/ ctx[81]);
-		},
-		m(target, anchor) {
-			insert(target, button, anchor);
-
-			if (!mounted) {
-				dispose = listen(button, "click", click_handler_19);
-				mounted = true;
-			}
-		},
-		p(new_ctx, dirty) {
-			ctx = new_ctx;
-
-			if (dirty[0] & /*playSpeed*/ 524288) {
-				toggle_class(button, "on", /*playSpeed*/ ctx[19] === /*s*/ ctx[81]);
-			}
-		},
-		d(detaching) {
-			if (detaching) {
-				detach(button);
-			}
-
-			mounted = false;
-			dispose();
-		}
-	};
-}
-
 function create_fragment(ctx) {
 	let div0;
 	let t1;
@@ -3955,67 +3728,62 @@ function create_fragment(ctx) {
 	let div3;
 	let t8;
 	let div4;
-	let t9;
 	let span2;
-	let t10_value = /*elapsed*/ ctx[41](/*tView*/ ctx[13]) + "";
 	let t10;
+	let span3;
+	let t11_value = /*elapsed*/ ctx[34](/*tNow*/ ctx[11]) + "";
 	let t11;
+	let t12;
 	let button;
-	let t13;
+	let t14;
 	let current_block_type_index;
-	let if_block1;
+	let if_block;
 	let current;
 	let mounted;
 	let dispose;
-
-	function select_block_type(ctx, dirty) {
-		if (/*isLive*/ ctx[15]) return create_if_block_11;
-		return create_else_block_4;
-	}
-
-	let current_block_type = select_block_type(ctx);
-	let if_block0 = current_block_type(ctx);
 	const if_block_creators = [create_if_block, create_if_block_1, create_else_block];
 	const if_blocks = [];
 
-	function select_block_type_1(ctx, dirty) {
-		if (/*error*/ ctx[17] && !/*snapshot*/ ctx[0]) return 0;
+	function select_block_type(ctx, dirty) {
+		if (/*error*/ ctx[14] && !/*snapshot*/ ctx[0]) return 0;
 		if (!/*snapshot*/ ctx[0]) return 1;
 		return 2;
 	}
 
-	current_block_type_index = select_block_type_1(ctx);
-	if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+	current_block_type_index = select_block_type(ctx);
+	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
 	return {
 		c() {
 			div0 = element("div");
-			div0.textContent = `${/*title*/ ctx[27]}`;
+			div0.textContent = `${/*title*/ ctx[23]}`;
 			t1 = space();
 			section = element("section");
 			header = element("header");
 			div3 = element("div");
-			div3.innerHTML = `<span class="rr-back svelte-9yg79b">‹</span> <div><div class="rr-kicker svelte-9yg79b">13ᵉ édition · Saint-Malo → Pointe-à-Pitre</div> <h1 class="svelte-9yg79b">Route du Rhum <span class="svelte-9yg79b">2026</span></h1></div>`;
+			div3.innerHTML = `<span class="rr-back svelte-xk6txw">‹</span> <div><div class="rr-kicker svelte-xk6txw">13ᵉ édition · Saint-Malo → Pointe-à-Pitre</div> <h1 class="svelte-xk6txw">Route du Rhum <span class="svelte-xk6txw">2026</span></h1></div>`;
 			t8 = space();
 			div4 = element("div");
-			if_block0.c();
-			t9 = space();
 			span2 = element("span");
-			t10 = text(t10_value);
-			t11 = space();
+			span2.innerHTML = `<i class="svelte-xk6txw"></i>DIRECT`;
+			t10 = space();
+			span3 = element("span");
+			t11 = text(t11_value);
+			t12 = space();
 			button = element("button");
 			button.textContent = "⟳";
-			t13 = space();
-			if_block1.c();
+			t14 = space();
+			if_block.c();
 			attr(div0, "class", "plugin__mobile-header");
-			attr(div3, "class", "rr-title svelte-9yg79b");
-			attr(span2, "class", "rr-clock svelte-9yg79b");
-			attr(button, "class", "rr-icon svelte-9yg79b");
+			attr(div3, "class", "rr-title svelte-xk6txw");
+			attr(span2, "class", "rr-badge live svelte-xk6txw");
+			attr(span3, "class", "rr-clock svelte-xk6txw");
+			attr(button, "class", "rr-icon svelte-xk6txw");
 			attr(button, "title", "Actualiser");
-			toggle_class(button, "spin", /*loading*/ ctx[16]);
-			attr(div4, "class", "rr-meta svelte-9yg79b");
-			attr(header, "class", "rr-head svelte-9yg79b");
-			attr(section, "class", "plugin__content rr svelte-9yg79b");
+			toggle_class(button, "spin", /*loading*/ ctx[13]);
+			attr(div4, "class", "rr-meta svelte-xk6txw");
+			attr(header, "class", "rr-head svelte-xk6txw");
+			attr(section, "class", "plugin__content rr svelte-xk6txw");
 		},
 		m(target, anchor) {
 			insert(target, div0, anchor);
@@ -4025,44 +3793,34 @@ function create_fragment(ctx) {
 			append(header, div3);
 			append(header, t8);
 			append(header, div4);
-			if_block0.m(div4, null);
-			append(div4, t9);
 			append(div4, span2);
-			append(span2, t10);
-			append(div4, t11);
+			append(div4, t10);
+			append(div4, span3);
+			append(span3, t11);
+			append(div4, t12);
 			append(div4, button);
-			append(section, t13);
+			append(section, t14);
 			if_blocks[current_block_type_index].m(section, null);
 			current = true;
 
 			if (!mounted) {
 				dispose = [
-					listen(div3, "click", /*click_handler*/ ctx[51]),
-					listen(button, "click", /*refresh*/ ctx[28])
+					listen(div3, "click", /*click_handler*/ ctx[43]),
+					listen(button, "click", /*refresh*/ ctx[24])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, dirty) {
-			if (current_block_type !== (current_block_type = select_block_type(ctx))) {
-				if_block0.d(1);
-				if_block0 = current_block_type(ctx);
+			if ((!current || dirty[0] & /*tNow*/ 2048) && t11_value !== (t11_value = /*elapsed*/ ctx[34](/*tNow*/ ctx[11]) + "")) set_data(t11, t11_value);
 
-				if (if_block0) {
-					if_block0.c();
-					if_block0.m(div4, t9);
-				}
-			}
-
-			if ((!current || dirty[0] & /*tView*/ 8192) && t10_value !== (t10_value = /*elapsed*/ ctx[41](/*tView*/ ctx[13]) + "")) set_data(t10, t10_value);
-
-			if (!current || dirty[0] & /*loading*/ 65536) {
-				toggle_class(button, "spin", /*loading*/ ctx[16]);
+			if (!current || dirty[0] & /*loading*/ 8192) {
+				toggle_class(button, "spin", /*loading*/ ctx[13]);
 			}
 
 			let previous_block_index = current_block_type_index;
-			current_block_type_index = select_block_type_1(ctx);
+			current_block_type_index = select_block_type(ctx);
 
 			if (current_block_type_index === previous_block_index) {
 				if_blocks[current_block_type_index].p(ctx, dirty);
@@ -4074,26 +3832,26 @@ function create_fragment(ctx) {
 				});
 
 				check_outros();
-				if_block1 = if_blocks[current_block_type_index];
+				if_block = if_blocks[current_block_type_index];
 
-				if (!if_block1) {
-					if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
-					if_block1.c();
+				if (!if_block) {
+					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+					if_block.c();
 				} else {
-					if_block1.p(ctx, dirty);
+					if_block.p(ctx, dirty);
 				}
 
-				transition_in(if_block1, 1);
-				if_block1.m(section, null);
+				transition_in(if_block, 1);
+				if_block.m(section, null);
 			}
 		},
 		i(local) {
 			if (current) return;
-			transition_in(if_block1);
+			transition_in(if_block);
 			current = true;
 		},
 		o(local) {
-			transition_out(if_block1);
+			transition_out(if_block);
 			current = false;
 		},
 		d(detaching) {
@@ -4103,7 +3861,6 @@ function create_fragment(ctx) {
 				detach(section);
 			}
 
-			if_block0.d();
 			if_blocks[current_block_type_index].d();
 			mounted = false;
 			run_all(dispose);
@@ -4112,14 +3869,30 @@ function create_fragment(ctx) {
 }
 
 const LS_PREFS = 'rr2026-prefs-v1';
+
+function computeRanking(list) {
+	const out = new Map();
+
+	for (const b of list) {
+		const s = b.state;
+
+		if (s) out.set(b.id, {
+			rank: s.status === 'RAC' ? s.rank : 0,
+			dtf: s.dtf,
+			dtl: s.dtl,
+			speed: s.speed
+		});
+	}
+
+	return out;
+}
+
 const func = x => x[1];
 const func_1 = x => [x[0], x[1]];
 
 function instance($$self, $$props, $$invalidate) {
 	let boats;
 	let tNow;
-	let isLive;
-	let tView;
 	let presentClasses;
 	let leaders;
 	let rows;
@@ -4148,12 +3921,8 @@ function instance($$self, $$props, $$invalidate) {
 	let colorBy = 'boat';
 	let labels = 'leaders';
 	let mapScope = 'all';
-	let time = null;
-	let playing = false;
-	let playSpeed = 3;
 	let layer = null;
 	let timer = null;
-	let raf = 0;
 
 	try {
 		const p = JSON.parse(localStorage.getItem(LS_PREFS) || '{}');
@@ -4168,57 +3937,14 @@ function instance($$self, $$props, $$invalidate) {
 
 	let ranking = new Map();
 
-	function computeRanking(list, t, live) {
-		const out = new Map();
-
-		if (live) {
-			for (const b of list) {
-				const s = b.state;
-
-				if (s) out.set(b.id, {
-					rank: s.status === 'RAC' ? s.rank : 0,
-					dtf: s.dtf,
-					dtl: s.dtl,
-					speed: s.speed
-				});
-			}
-
-			return out;
-		}
-
-		const byClass = new Map();
-
-		for (const b of list) {
-			const p = positionAt(b.track, t);
-			if (!p) continue;
-			const arr = byClass.get(b.className) ?? [];
-			arr.push({ b, dtf: p.dtf, speed: p.speed });
-			byClass.set(b.className, arr);
-		}
-
-		byClass.forEach(arr => {
-			arr.sort((x, y) => x.dtf - y.dtf);
-			const lead = arr[0]?.dtf ?? 0;
-
-			arr.forEach((x, i) => out.set(x.b.id, {
-				rank: i + 1,
-				dtf: x.dtf,
-				dtl: x.dtf - lead,
-				speed: x.speed
-			}));
-		});
-
-		return out;
-	}
-
 	async function refresh() {
 		if (loading) return;
-		$$invalidate(16, loading = true);
+		$$invalidate(13, loading = true);
 		lastRefresh = Date.now();
 
 		try {
 			const [live, remote] = await Promise.all([fetchLive(), fetchRemoteHistory()]);
-			$$invalidate(44, remoteOk = !!remote);
+			$$invalidate(37, remoteOk = !!remote);
 			let h = hist;
 			if (remote) h = mergeHistory(h, remote);
 			h = mergeHistory(h, liveToHistory(live));
@@ -4226,13 +3952,13 @@ function instance($$self, $$props, $$invalidate) {
 			saveLocal(h);
 			const first = !snapshot;
 			$$invalidate(0, snapshot = buildSnapshot(live, h));
-			$$invalidate(17, error = '');
+			$$invalidate(14, error = '');
 			if (first) setTimeout(fitVisible, 50);
 		} catch(e) {
-			$$invalidate(17, error = e instanceof Error ? e.message : String(e));
+			$$invalidate(14, error = e instanceof Error ? e.message : String(e));
 			console.warn('[Rhum]', e);
 		} finally {
-			$$invalidate(16, loading = false);
+			$$invalidate(13, loading = false);
 		}
 	}
 
@@ -4245,12 +3971,12 @@ function instance($$self, $$props, $$invalidate) {
 
 	function centerOn(b) {
 		if (!b) return;
-		const p = positionAt(b.track, tView);
-		if (p) map.setView([p.lat, p.lon], Math.max(map.getZoom(), 6));
+		const p = positionAt(b.track, tNow);
+		if (p) map.setNow([p.lat, p.lon], Math.max(map.getZoom(), 6));
 	}
 
 	function fitVisible() {
-		const pts = rows.map(b => positionAt(b.track, tView)).filter(Boolean).map(p => [p.lat, p.lon]);
+		const pts = rows.map(b => positionAt(b.track, tNow)).filter(Boolean).map(p => [p.lat, p.lon]);
 		if (!pts.length) return;
 		map.fitBounds(new L.LatLngBounds(pts), { padding: [40, 40], maxZoom: 8 });
 	}
@@ -4261,50 +3987,6 @@ function instance($$self, $$props, $$invalidate) {
 		: favorites.add(id);
 
 		$$invalidate(5, favorites = new Set(favorites));
-	}
-
-	function scrub(v) {
-		$$invalidate(45, time = v >= tNow - 60 ? null : v);
-	}
-
-	function goLive() {
-		$$invalidate(10, playing = false);
-		$$invalidate(45, time = null);
-	}
-
-	function togglePlay() {
-		if (playing) {
-			$$invalidate(10, playing = false);
-			return;
-		}
-
-		if (time === null || time >= tNow - 60) $$invalidate(45, time = RACE_START);
-		$$invalidate(10, playing = true);
-		let last = performance.now();
-		let acc = 0;
-
-		const step = now => {
-			if (!playing) return;
-			const dt = (now - last) / 1000;
-			last = now;
-			acc += dt;
-
-			if (acc > 0.08) {
-				const next = (time ?? RACE_START) + playSpeed * 3600 * acc;
-				acc = 0;
-
-				if (next >= tNow) {
-					goLive();
-					return;
-				}
-
-				$$invalidate(45, time = next);
-			}
-
-			raf = requestAnimationFrame(step);
-		};
-
-		raf = requestAnimationFrame(step);
 	}
 
 	const fx = (v, d = 1) => v === undefined || v === null || !isFinite(v)
@@ -4370,7 +4052,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	onMount(() => {
-		$$invalidate(46, layer = new RaceLayer(id => select(id)));
+		$$invalidate(38, layer = new RaceLayer(id => select(id)));
 		refresh();
 		timer = setInterval(refresh, REFRESH_MS);
 		document.addEventListener('visibilitychange', onVisible);
@@ -4378,13 +4060,11 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	onDestroy(() => {
-		$$invalidate(10, playing = false);
-		cancelAnimationFrame(raf);
 		if (timer) clearInterval(timer);
 		document.removeEventListener('visibilitychange', onVisible);
 		window.removeEventListener('online', refresh);
 		layer?.destroy();
-		$$invalidate(46, layer = null);
+		$$invalidate(38, layer = null);
 	});
 
 	const click_handler = () => bcast.emit('rqstOpen', 'menu');
@@ -4396,12 +4076,12 @@ function instance($$self, $$props, $$invalidate) {
 	const click_handler_6 = c => $$invalidate(1, tab = c.name);
 	const click_handler_7 = () => $$invalidate(1, tab = 'fav');
 
-	function input0_input_handler() {
+	function input_input_handler() {
 		query = this.value;
 		$$invalidate(2, query);
 	}
 
-	const click_handler_8 = () => $$invalidate(18, showSettings = !showSettings);
+	const click_handler_8 = () => $$invalidate(15, showSettings = !showSettings);
 	const click_handler_9 = v => $$invalidate(6, trackMode = v);
 	const click_handler_10 = () => $$invalidate(7, colorBy = 'boat');
 	const click_handler_11 = () => $$invalidate(7, colorBy = 'class');
@@ -4412,8 +4092,6 @@ function instance($$self, $$props, $$invalidate) {
 	const click_handler_16 = () => $$invalidate(9, mapScope = 'tab');
 	const click_handler_17 = b => toggleFav(b.id);
 	const click_handler_18 = b => select(b.id);
-	const input_handler = e => scrub(+e.currentTarget.value);
-	const click_handler_19 = s => $$invalidate(19, playSpeed = s);
 
 	$$self.$$.update = () => {
 		if ($$self.$$.dirty[0] & /*favorites, trackMode, colorBy, labels, mapScope*/ 992) {
@@ -4431,35 +4109,27 @@ function instance($$self, $$props, $$invalidate) {
 		}
 
 		if ($$self.$$.dirty[0] & /*snapshot*/ 1) {
-			$$invalidate(47, boats = snapshot?.boats ?? []);
+			$$invalidate(39, boats = snapshot?.boats ?? []);
 		}
 
-		if ($$self.$$.dirty[0] & /*snapshot*/ 1 | $$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(12, tNow = Math.max(snapshot?.reportDate ?? 0, ...boats.map(b => b.track[b.track.length - 1]?.[0] ?? 0), RACE_START + 60));
+		if ($$self.$$.dirty[0] & /*snapshot*/ 1 | $$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(11, tNow = Math.max(snapshot?.reportDate ?? 0, ...boats.map(b => b.track[b.track.length - 1]?.[0] ?? 0), RACE_START + 60));
 		}
 
-		if ($$self.$$.dirty[1] & /*time*/ 16384) {
-			$$invalidate(15, isLive = time === null);
+		if ($$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(22, presentClasses = CLASSES.filter(c => boats.some(b => b.className === c.name)));
 		}
 
-		if ($$self.$$.dirty[0] & /*tNow*/ 4096 | $$self.$$.dirty[1] & /*time*/ 16384) {
-			$$invalidate(13, tView = time ?? tNow);
+		if ($$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(10, ranking = computeRanking(boats));
 		}
 
-		if ($$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(26, presentClasses = CLASSES.filter(c => boats.some(b => b.className === c.name)));
+		if ($$self.$$.dirty[0] & /*ranking*/ 1024) {
+			$$invalidate(41, leaders = new Set([...ranking].filter(([,r]) => r.rank === 1).map(([id]) => id)));
 		}
 
-		if ($$self.$$.dirty[0] & /*tView, isLive*/ 40960 | $$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(11, ranking = computeRanking(boats, tView, isLive));
-		}
-
-		if ($$self.$$.dirty[0] & /*ranking*/ 2048) {
-			$$invalidate(49, leaders = new Set([...ranking].filter(([,r]) => r.rank === 1).map(([id]) => id)));
-		}
-
-		if ($$self.$$.dirty[0] & /*tab, favorites, query, ranking*/ 2086 | $$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(20, rows = boats.filter(b => tab === 'all'
+		if ($$self.$$.dirty[0] & /*tab, favorites, query, ranking*/ 1062 | $$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(16, rows = boats.filter(b => tab === 'all'
 			? true
 			: tab === 'fav'
 				? favorites.has(b.id)
@@ -4480,8 +4150,8 @@ function instance($$self, $$props, $$invalidate) {
 			}));
 		}
 
-		if ($$self.$$.dirty[0] & /*mapScope, tab, favorites*/ 546 | $$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(50, visible = new Set(boats.filter(b => mapScope === 'all'
+		if ($$self.$$.dirty[0] & /*mapScope, tab, favorites*/ 546 | $$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(42, visible = new Set(boats.filter(b => mapScope === 'all'
 				? true
 				: tab === 'all'
 					? true
@@ -4490,48 +4160,44 @@ function instance($$self, $$props, $$invalidate) {
 						: b.className === tab).map(b => b.id)));
 		}
 
-		if ($$self.$$.dirty[0] & /*selected*/ 8 | $$self.$$.dirty[1] & /*boats*/ 65536) {
-			$$invalidate(14, sel = boats.find(b => b.id === selected) ?? null);
+		if ($$self.$$.dirty[0] & /*selected*/ 8 | $$self.$$.dirty[1] & /*boats*/ 256) {
+			$$invalidate(12, sel = boats.find(b => b.id === selected) ?? null);
 		}
 
-		if ($$self.$$.dirty[0] & /*sel, tView*/ 24576) {
-			$$invalidate(48, selPos = sel ? positionAt(sel.track, tView) : null);
+		if ($$self.$$.dirty[0] & /*sel, tNow*/ 6144) {
+			$$invalidate(40, selPos = sel ? positionAt(sel.track, tNow) : null);
 		}
 
-		if ($$self.$$.dirty[0] & /*sel, isLive*/ 49152 | $$self.$$.dirty[1] & /*selPos*/ 131072) {
-			$$invalidate(25, selSpeed = sel
-			? isLive && sel.state
-				? sel.state.speed
-				: selPos?.speed ?? 0
+		if ($$self.$$.dirty[0] & /*sel*/ 4096 | $$self.$$.dirty[1] & /*selPos*/ 512) {
+			$$invalidate(21, selSpeed = sel
+			? sel.state ? sel.state.speed : selPos?.speed ?? 0
 			: 0);
 		}
 
-		if ($$self.$$.dirty[0] & /*sel, isLive*/ 49152 | $$self.$$.dirty[1] & /*selPos*/ 131072) {
-			$$invalidate(24, selHeading = sel
-			? isLive && sel.state
-				? sel.state.heading
-				: selPos?.heading ?? 0
+		if ($$self.$$.dirty[0] & /*sel*/ 4096 | $$self.$$.dirty[1] & /*selPos*/ 512) {
+			$$invalidate(20, selHeading = sel
+			? sel.state ? sel.state.heading : selPos?.heading ?? 0
 			: 0);
 		}
 
-		if ($$self.$$.dirty[0] & /*sel*/ 16384) {
-			$$invalidate(23, selSpeeds = sel ? speedSeries(sel.track) : []);
+		if ($$self.$$.dirty[0] & /*sel*/ 4096) {
+			$$invalidate(19, selSpeeds = sel ? speedSeries(sel.track) : []);
 		}
 
-		if ($$self.$$.dirty[0] & /*sel, tView*/ 24576) {
-			$$invalidate(22, selD24 = sel ? dist24h(sel.track, tView) : 0);
+		if ($$self.$$.dirty[0] & /*sel, tNow*/ 6144) {
+			$$invalidate(18, selD24 = sel ? dist24h(sel.track, tNow) : 0);
 		}
 
-		if ($$self.$$.dirty[1] & /*remoteOk*/ 8192) {
-			$$invalidate(21, historyNote = remoteOk
+		if ($$self.$$.dirty[1] & /*remoteOk*/ 64) {
+			$$invalidate(17, historyNote = remoteOk
 			? ' · historique complet'
 			: ' · historique accumulé localement');
 		}
 
-		if ($$self.$$.dirty[0] & /*snapshot, tView, selected, favorites, trackMode, labels, colorBy*/ 8681 | $$self.$$.dirty[1] & /*layer, boats, visible, leaders*/ 884736) {
+		if ($$self.$$.dirty[0] & /*snapshot, tNow, selected, favorites, trackMode, labels, colorBy*/ 2537 | $$self.$$.dirty[1] & /*layer, boats, visible, leaders*/ 3456) {
 			if (layer && snapshot) {
 				layer.render(boats, {
-					time: tView,
+					time: tNow,
 					visible,
 					selected,
 					favorites,
@@ -4543,8 +4209,8 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		}
 
-		if ($$self.$$.dirty[0] & /*follow, playing*/ 1040 | $$self.$$.dirty[1] & /*selPos*/ 131072) {
-			if (follow && selPos) map.panTo([selPos.lat, selPos.lon], { animate: !playing });
+		if ($$self.$$.dirty[0] & /*follow*/ 16 | $$self.$$.dirty[1] & /*selPos*/ 512) {
+			if (follow && selPos) map.panTo([selPos.lat, selPos.lon], { animate: true });
 		}
 	};
 
@@ -4559,16 +4225,12 @@ function instance($$self, $$props, $$invalidate) {
 		colorBy,
 		labels,
 		mapScope,
-		playing,
 		ranking,
 		tNow,
-		tView,
 		sel,
-		isLive,
 		loading,
 		error,
 		showSettings,
-		playSpeed,
 		rows,
 		historyNote,
 		selD24,
@@ -4582,9 +4244,6 @@ function instance($$self, $$props, $$invalidate) {
 		centerOn,
 		fitVisible,
 		toggleFav,
-		scrub,
-		goLive,
-		togglePlay,
 		fx,
 		maxOf,
 		classCount,
@@ -4594,7 +4253,6 @@ function instance($$self, $$props, $$invalidate) {
 		fmtDate,
 		onopen,
 		remoteOk,
-		time,
 		layer,
 		boats,
 		selPos,
@@ -4608,7 +4266,7 @@ function instance($$self, $$props, $$invalidate) {
 		click_handler_5,
 		click_handler_6,
 		click_handler_7,
-		input0_input_handler,
+		input_input_handler,
 		click_handler_8,
 		click_handler_9,
 		click_handler_10,
@@ -4619,20 +4277,18 @@ function instance($$self, $$props, $$invalidate) {
 		click_handler_15,
 		click_handler_16,
 		click_handler_17,
-		click_handler_18,
-		input_handler,
-		click_handler_19
+		click_handler_18
 	];
 }
 
 class Plugin extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { onopen: 43 }, add_css, [-1, -1, -1, -1]);
+		init(this, options, instance, create_fragment, safe_not_equal, { onopen: 36 }, add_css, [-1, -1, -1]);
 	}
 
 	get onopen() {
-		return this.$$.ctx[43];
+		return this.$$.ctx[36];
 	}
 }
 

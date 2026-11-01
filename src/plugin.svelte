@@ -11,12 +11,8 @@
             </div>
         </div>
         <div class="rr-meta">
-            {#if isLive}
-                <span class="rr-badge live"><i></i>DIRECT</span>
-            {:else}
-                <span class="rr-badge replay">REPLAY</span>
-            {/if}
-            <span class="rr-clock">{elapsed(tView)}</span>
+            <span class="rr-badge live"><i></i>DIRECT</span>
+            <span class="rr-clock">{elapsed(tNow)}</span>
             <button class="rr-icon" title="Actualiser" class:spin={loading} on:click={refresh}>⟳</button>
         </div>
     </header>
@@ -56,14 +52,14 @@
                     <div><small>Arrivée</small><b>{fx(r?.dtf, 0)}</b><i>mn</i></div>
                     <div><small>Écart leader</small><b>{r?.rank === 1 ? '—' : fx(r?.dtl, 1)}</b><i>{r?.rank === 1 ? 'en tête' : 'mn'}</i></div>
                     <div><small>24 h</small><b>{fx(selD24, 0)}</b><i>mn</i></div>
-                    {#if isLive && st}
+                    {#if st}
                         <div><small>VMG</small><b>{fx(st.vmg)}</b><i>nds</i></div>
                     {:else}
                         <div><small>Moy. 24 h</small><b>{fx(selD24 / 24)}</b><i>nds</i></div>
                     {/if}
                 </div>
 
-                {#if isLive && st}
+                {#if st}
                     <div class="rr-wx">
                         <div title="Vent">
                             <span class="rr-arrow" style="transform:rotate({st.windDir + 180}deg)">↑</span>
@@ -80,12 +76,12 @@
 
                 <div class="rr-chart">
                     <div class="rr-chart-h">Vitesse <span>{fx(maxOf(selSpeeds))} nds max</span></div>
-                    <Sparkline data={selSpeeds} color={sel.color} tMin={RACE_START} tMax={tNow} cursor={isLive ? null : tView} />
+                    <Sparkline data={selSpeeds} color={sel.color} tMin={RACE_START} tMax={tNow} />
                 </div>
                 {#if sel.ranks.length > 1}
                     <div class="rr-chart">
                         <div class="rr-chart-h">Classement <span>meilleur : {Math.min(...sel.ranks.map(x => x[1]))}ᵉ</span></div>
-                        <Sparkline data={sel.ranks.map(x => [x[0], x[1]])} color={classColor(sel.className)} invert tMin={RACE_START} tMax={tNow} cursor={isLive ? null : tView} />
+                        <Sparkline data={sel.ranks.map(x => [x[0], x[1]])} color={classColor(sel.className)} invert tMin={RACE_START} tMax={tNow} />
                     </div>
                 {/if}
 
@@ -170,35 +166,7 @@
             {/each}
         </ol>
 
-        <!-- Replay -->
-        <footer class="rr-replay">
-            <div class="rr-replay-row">
-                <button class="rr-play" on:click={togglePlay} title={playing ? 'Pause' : 'Lecture'}>
-                    {playing ? '❚❚' : '▶'}
-                </button>
-                <input
-                    type="range"
-                    min={RACE_START}
-                    max={tNow}
-                    step="60"
-                    value={tView}
-                    on:input={e => scrub(+e.currentTarget.value)}
-                    style="--p:{((tView - RACE_START) / Math.max(1, tNow - RACE_START)) * 100}%"
-                />
-                <button class="rr-btn" class:on={isLive} on:click={goLive}>Direct</button>
-            </div>
-            <div class="rr-replay-row small">
-                <span>{fmtDate(tView)}</span>
-                <span class="rr-speeds">
-                    {#each [1, 3, 6, 12] as s}
-                        <button class:on={playSpeed === s} on:click={() => (playSpeed = s)}>×{s}h/s</button>
-                    {/each}
-                </span>
-            </div>
-            <div class="rr-src">
-                Positions : tracker officiel (Geovoile){historyNote}
-            </div>
-        </footer>
+        <div class="rr-src">Positions : tracker officiel (Geovoile){historyNote}</div>
     {/if}
 </section>
 
@@ -248,13 +216,9 @@
     let labels: LabelMode = 'leaders';
     let mapScope: 'all' | 'tab' = 'all';
 
-    let time: number | null = null; // null = direct
-    let playing = false;
-    let playSpeed = 3; // heures de course par seconde
 
     let layer: RaceLayer | null = null;
     let timer: ReturnType<typeof setInterval> | null = null;
-    let raf = 0;
 
     // ---- Préférences --------------------------------------------------------
     try {
@@ -283,8 +247,6 @@
         ...boats.map(b => b.track[b.track.length - 1]?.[0] ?? 0),
         RACE_START + 60,
     );
-    $: isLive = time === null;
-    $: tView = time ?? tNow;
     $: presentClasses = CLASSES.filter(c => boats.some(b => b.className === c.name));
 
     interface Rank {
@@ -294,30 +256,14 @@
         speed: number;
     }
     let ranking = new Map<string, Rank>();
-    $: ranking = computeRanking(boats, tView, isLive);
+    $: ranking = computeRanking(boats);
 
-    function computeRanking(list: Boat[], t: number, live: boolean): Map<string, Rank> {
+    function computeRanking(list: Boat[]): Map<string, Rank> {
         const out = new Map<string, Rank>();
-        if (live) {
-            for (const b of list) {
-                const s = b.state;
-                if (s) out.set(b.id, { rank: s.status === 'RAC' ? s.rank : 0, dtf: s.dtf, dtl: s.dtl, speed: s.speed });
-            }
-            return out;
-        }
-        const byClass = new Map<string, { b: Boat; dtf: number; speed: number }[]>();
         for (const b of list) {
-            const p = positionAt(b.track, t);
-            if (!p) continue;
-            const arr = byClass.get(b.className) ?? [];
-            arr.push({ b, dtf: p.dtf, speed: p.speed });
-            byClass.set(b.className, arr);
+            const s = b.state;
+            if (s) out.set(b.id, { rank: s.status === 'RAC' ? s.rank : 0, dtf: s.dtf, dtl: s.dtl, speed: s.speed });
         }
-        byClass.forEach(arr => {
-            arr.sort((x, y) => x.dtf - y.dtf);
-            const lead = arr[0]?.dtf ?? 0;
-            arr.forEach((x, i) => out.set(x.b.id, { rank: i + 1, dtf: x.dtf, dtl: x.dtf - lead, speed: x.speed }));
-        });
         return out;
     }
 
@@ -350,18 +296,18 @@
     );
 
     $: sel = boats.find(b => b.id === selected) ?? null;
-    $: selPos = sel ? positionAt(sel.track, tView) : null;
-    $: selSpeed = sel ? (isLive && sel.state ? sel.state.speed : selPos?.speed ?? 0) : 0;
-    $: selHeading = sel ? (isLive && sel.state ? sel.state.heading : selPos?.heading ?? 0) : 0;
+    $: selPos = sel ? positionAt(sel.track, tNow) : null;
+    $: selSpeed = sel ? (sel.state ? sel.state.speed : selPos?.speed ?? 0) : 0;
+    $: selHeading = sel ? (sel.state ? sel.state.heading : selPos?.heading ?? 0) : 0;
     $: selSpeeds = sel ? speedSeries(sel.track) : [];
-    $: selD24 = sel ? dist24h(sel.track, tView) : 0;
+    $: selD24 = sel ? dist24h(sel.track, tNow) : 0;
 
     $: historyNote = remoteOk ? ' · historique complet' : ' · historique accumulé localement';
 
     // ---- Rendu carte ----------------------------------------------------------
     $: if (layer && snapshot) {
         layer.render(boats, {
-            time: tView,
+            time: tNow,
             visible,
             selected,
             favorites,
@@ -371,7 +317,7 @@
             leaders,
         });
     }
-    $: if (follow && selPos) map.panTo([selPos.lat, selPos.lon], { animate: !playing });
+    $: if (follow && selPos) map.panTo([selPos.lat, selPos.lon], { animate: true });
 
     // ---- Données ------------------------------------------------------------
     async function refresh() {
@@ -408,13 +354,13 @@
 
     function centerOn(b: Boat | null) {
         if (!b) return;
-        const p = positionAt(b.track, tView);
-        if (p) map.setView([p.lat, p.lon], Math.max(map.getZoom(), 6));
+        const p = positionAt(b.track, tNow);
+        if (p) map.setNow([p.lat, p.lon], Math.max(map.getZoom(), 6));
     }
 
     function fitVisible() {
         const pts = rows
-            .map(b => positionAt(b.track, tView))
+            .map(b => positionAt(b.track, tNow))
             .filter(Boolean)
             .map(p => [p!.lat, p!.lon] as [number, number]);
         if (!pts.length) return;
@@ -424,44 +370,6 @@
     function toggleFav(id: string) {
         favorites.has(id) ? favorites.delete(id) : favorites.add(id);
         favorites = new Set(favorites);
-    }
-
-    function scrub(v: number) {
-        time = v >= tNow - 60 ? null : v;
-    }
-
-    function goLive() {
-        playing = false;
-        time = null;
-    }
-
-    function togglePlay() {
-        if (playing) {
-            playing = false;
-            return;
-        }
-        if (time === null || time >= tNow - 60) time = RACE_START;
-        playing = true;
-        let last = performance.now();
-        let acc = 0;
-        const step = (now: number) => {
-            if (!playing) return;
-            const dt = (now - last) / 1000;
-            last = now;
-            acc += dt;
-            if (acc > 0.08) {
-                // ~12 images/s pour ménager la carte
-                const next = (time ?? RACE_START) + playSpeed * 3600 * acc;
-                acc = 0;
-                if (next >= tNow) {
-                    goLive();
-                    return;
-                }
-                time = next;
-            }
-            raf = requestAnimationFrame(step);
-        };
-        raf = requestAnimationFrame(step);
     }
 
     // ---- Formatage ----------------------------------------------------------
@@ -509,8 +417,6 @@
     });
 
     onDestroy(() => {
-        playing = false;
-        cancelAnimationFrame(raf);
         if (timer) clearInterval(timer);
         document.removeEventListener('visibilitychange', onVisible);
         window.removeEventListener('online', refresh);
@@ -597,10 +503,6 @@
                 margin-right: 5px;
                 animation: rr-blink 1.4s infinite;
             }
-        }
-        &.replay {
-            background: rgba(62, 168, 255, 0.15);
-            color: #6dbdff;
         }
     }
     .rr-clock {
@@ -967,73 +869,6 @@
         }
     }
 
-    /* Replay */
-    .rr-replay {
-        position: sticky;
-        bottom: 0;
-        margin-top: 10px;
-        padding: 10px;
-        background: rgba(15, 23, 34, 0.92);
-        backdrop-filter: blur(6px);
-        border: 1px solid @line;
-        border-radius: 12px;
-    }
-    .rr-replay-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        &.small {
-            margin-top: 6px;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #c3ccd8;
-        }
-        input[type='range'] {
-            flex: 1;
-            appearance: none;
-            height: 4px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, @acc var(--p), rgba(255, 255, 255, 0.15) var(--p));
-            outline: none;
-            &::-webkit-slider-thumb {
-                appearance: none;
-                width: 14px;
-                height: 14px;
-                border-radius: 50%;
-                background: #fff;
-                box-shadow: 0 0 0 3px rgba(46, 230, 166, 0.35);
-            }
-            &::-moz-range-thumb {
-                width: 14px;
-                height: 14px;
-                border: 0;
-                border-radius: 50%;
-                background: #fff;
-            }
-        }
-    }
-    .rr-play {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 0;
-        background: @acc;
-        color: @bg !important;
-        font-size: 12px;
-        font-weight: 900;
-        flex: none;
-    }
-    .rr-speeds button {
-        background: none;
-        border: 0;
-        padding: 0 3px;
-        font-size: 11px;
-        color: @mute;
-        &.on {
-            color: @acc;
-            font-weight: 700;
-        }
-    }
     .rr-src {
         margin-top: 6px;
         font-size: 10px;

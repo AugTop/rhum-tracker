@@ -2,11 +2,11 @@ import type { ExternalPluginConfig } from '@windy/interfaces';
 
 const config: ExternalPluginConfig = {
     name: 'windy-plugin-rhum-tracker',
-    version: '1.0.0',
+    version: '1.1.0',
     icon: '⛵',
     title: 'Route du Rhum 2026 · Tracker',
     description:
-        'Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, replay, classement par classe et fiche bateau.',
+        'Suivi en direct de la Route du Rhum 2026 : flotte complète, historique des traces, classement par classe et fiche bateau.',
     author: 'Augustin',
     repository: 'https://github.com/AugTop/rhum-tracker',
     desktopUI: 'rhpane',
